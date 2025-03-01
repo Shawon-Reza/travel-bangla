@@ -10,6 +10,7 @@ import {
 import HomeLayout from './Layout/HomeLayout.jsx';
 import Booking from './Pages/Booking.jsx';
 import FindFriend from './Pages/FindFriend.jsx';
+import ContactUs from './Components/ContactUs.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/findfriends',
     element: <FindFriend></FindFriend>
+  },
+  {
+    path: '/contactus',
+    element: <ContactUs></ContactUs>
   }
 ]);
 createRoot(document.getElementById('root')).render(

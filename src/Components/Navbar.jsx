@@ -5,10 +5,11 @@ const Navbar = () => {
     const menuItems = (
         <>
             <li><NavLink to={'/'}>Home</NavLink></li>
-            <li><NavLink to={'/'}>Blogs</NavLink></li>
+            <li><NavLink to={''}>Tourism stops</NavLink></li>
             <li><NavLink to={'/booking'}>Booking</NavLink></li>
             <li><NavLink to={'/findfriends'}>Find Friends</NavLink></li>
-            <li><a>Contacts</a></li>
+            <li><NavLink to={'/contactus'}>Contact us</NavLink></li>
+           
         </>
     )
 
