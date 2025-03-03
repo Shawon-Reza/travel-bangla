@@ -1,7 +1,7 @@
 
 const Header = () => {
     return (
-        <div className="md:flex justify-around gap-3 px-5 pt-5 md:pt-15">
+        <div className="md:flex justify-around gap-3 px-5 pt-5 md:pt-15 container mx-auto">
 
             {/* Text container part 1 */}
             <div className="px-5">
@@ -16,13 +16,28 @@ const Header = () => {
                     <button className="btn lg:btn-xl  lg:rounded-xl hover:btn-accent hover:text-white">Learn More</button>
                 </div>
             </div>
+
             {/* img container part 2 */}
-            <div>
-                <img src="https://i.ibb.co.com/6JL7Xk7y/hero-banner.png" alt="" 
-                // className="p-5 md:p-0 h-[50%]" 
-                className="px-10 md:p-0 w-auto max-w-full"
-                // className="h-[350px] w-[300px]"
+            <div className="relative">
+                <img src="https://i.ibb.co.com/6JL7Xk7y/hero-banner.png" alt=""
+                    className="px-10 md:p-0 w-auto max-w-full"
                 />
+
+
+                {/*360 degree Rorate Images */}
+
+                <img src="https://i.ibb.co.com/7d8ffpJx/shape-3.png" alt=""
+                    className="hidden md:block absolute top-0 -left-10 animate-slowSpin "
+                />
+
+                <img src="https://i.ibb.co.com/wrdsrLD5/shape-2.png" alt=""
+                    className="hidden md:block absolute top-[30%] -right-15 animate-slowSpin"
+                />
+
+                <img src="https://i.ibb.co.com/BVsF0NkF/shape-1.png" alt=""
+                    className="hidden md:block absolute bottom-0 animate-slowSpin"
+                />
+
             </div>
         </div>
     );
