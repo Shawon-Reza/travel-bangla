@@ -1,11 +1,13 @@
-import React from 'react';
-import UnderConstraction from '../Components/UnderConstraction';
+
+import UnderConstraction from './../Components/UnderConstraction';
+
 
 const FindFriend = () => {
+
+    
     return (
-        <div>
-            <UnderConstraction></UnderConstraction>
-        </div>
+
+       <UnderConstraction></UnderConstraction>
     );
 };
 

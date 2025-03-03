@@ -27,17 +27,22 @@ const Header = () => {
                 {/*360 degree Rorate Images */}
 
                 <img src="https://i.ibb.co.com/7d8ffpJx/shape-3.png" alt=""
-                    className="hidden md:block absolute top-0 -left-10 animate-slowSpin "
+                    className=" absolute top-[42%] -left-4 md:-left-15 animate-slowSpin "
                 />
 
                 <img src="https://i.ibb.co.com/wrdsrLD5/shape-2.png" alt=""
-                    className="hidden md:block absolute top-[30%] -right-15 animate-slowSpin"
+                    className=" absolute -top-[7%] right-5 md:right-0 animate-slowSpin"
                 />
 
                 <img src="https://i.ibb.co.com/BVsF0NkF/shape-1.png" alt=""
-                    className="hidden md:block absolute bottom-0 animate-slowSpin"
+                    className=" absolute bottom-0 right-7 md:right-0  animate-slowSpin"
                 />
 
+            </div>
+
+
+            <div>
+                
             </div>
         </div>
     );

@@ -4,7 +4,7 @@ import { FaFacebook, FaGithub, FaInstagramSquare, FaTwitter } from 'react-icons/
 const Footer = () => {
     return (
         <div>
-            <footer className="footer sm:footer-horizontal bg-base-300 text-base-content p-10 flex justify-around">
+            <footer className="footer bg-[#131a30] bg-[url('https://i.ibb.co/5hmcDxLM/footer-bg.png')] bg-cover bg-center p-10 flex justify-around text-white font-semibold text-lg">
                 <nav>
                     <h6 className="footer-title">Services</h6>
                     <a className="link link-hover">Branding</a>

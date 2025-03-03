@@ -11,6 +11,7 @@ import HomeLayout from './Layout/HomeLayout.jsx';
 import Booking from './Pages/Booking.jsx';
 import FindFriend from './Pages/FindFriend.jsx';
 import ContactUs from './Components/ContactUs.jsx';
+import LoginRegistration from './Components/LoginRegistration';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: '/contactus',
     element: <ContactUs></ContactUs>
+  },
+  {
+    path:"/loginregistration",
+    element: <LoginRegistration></LoginRegistration>
   }
 ]);
 createRoot(document.getElementById('root')).render(
