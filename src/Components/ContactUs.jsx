@@ -52,7 +52,7 @@ const ContactUs = () => {
                 <p className="text-center opacity-75">Any questions or remarks? Just write us a message!</p>
 
                 {/* Form & Contact Details */}
-                <div className="container mx-auto px-6 pt-20 grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="container mx-auto px-6 pt-5 sm:pt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
 
                     {/* Contact Information */}
                     <div className="flex flex-col justify-around gap-y-6">
@@ -105,6 +105,7 @@ const ContactUs = () => {
                                     <label className="block text-sm font-medium text-gray-700">First name</label>
                                     <input
                                         type="text"
+                                        required
                                         name="firstName"
                                         value={formData.firstName}
                                         onChange={handleChange}
@@ -132,6 +133,7 @@ const ContactUs = () => {
                                     <label className="block text-sm font-medium text-gray-700">Email</label>
                                     <input
                                         type="text"
+                                        required
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
@@ -144,6 +146,7 @@ const ContactUs = () => {
                                     <label className="block text-sm font-medium text-gray-700">Phone</label>
                                     <input
                                         type="text"
+                                        required
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleChange}
@@ -221,6 +224,7 @@ const ContactUs = () => {
                                 <label className="block text-md font-medium text-gray-700">Message</label>
                                 <input
                                     type="text"
+                                    required
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
@@ -238,7 +242,7 @@ const ContactUs = () => {
                 </div>
             </section>
 
-            <div className="pt-10">
+            <div className="sm:pt-10">
                 <Footer />
             </div>
         </div>

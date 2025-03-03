@@ -4,7 +4,7 @@ import { FaFacebook, FaGithub, FaInstagramSquare, FaTwitter } from 'react-icons/
 const Footer = () => {
     return (
         <div>
-            <footer className="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
+            <footer className="footer sm:footer-horizontal bg-base-300 text-base-content p-10 flex justify-around">
                 <nav>
                     <h6 className="footer-title">Services</h6>
                     <a className="link link-hover">Branding</a>
@@ -19,14 +19,16 @@ const Footer = () => {
                     <a className="link link-hover">Jobs</a>
                     <a className="link link-hover">Press kit</a>
                 </nav>
+
                 <nav>
                     <h6 className="footer-title">Social</h6>
-                    <div className=" flex gap-8 text-3xl">
+                    <div className=" flex gap-8 text-3xl flex-col sm:flex-row">
                         <FaGithub
                             onClick={() => window.open("https://github.com/Shawon-Reza?tab=repositories", "_blank")}
                             className="cursor-pointer"
                         />
                         <FaTwitter
+                        className='hidden sm:block'
 
                         />
                         <FaFacebook
@@ -39,6 +41,7 @@ const Footer = () => {
                         />
                     </div>
                 </nav>
+              
             </footer>
         </div>
     );
