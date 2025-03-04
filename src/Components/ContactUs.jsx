@@ -38,27 +38,27 @@ const ContactUs = () => {
             subject: "general", // Default value remains
             message: "",
         });
-        
+
     };
-    
-        console.log(formData);
+
+    console.log(formData);
 
     return (
         <div>
             <Navbar />
 
-            <section className="mt-10 px-5">
+            <section className="mt-10 px-5 container mx-auto">
                 <h2 className="text-3xl font-extrabold text-center">Contact Us</h2>
                 <p className="text-center opacity-75">Any questions or remarks? Just write us a message!</p>
 
                 {/* Form & Contact Details */}
-                <div className="container mx-auto px-6 pt-5 sm:pt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="container mx-auto px-6 pt-5 sm:pt-10 grid grid-cols-1 md:grid-cols-2 gap-10 ">
 
                     {/* Contact Information */}
-                    <div className="flex flex-col justify-around gap-y-6">
+                    <div className="flex flex-col justify-around gap-y-6 md:bg-[url('https://i.pinimg.com/736x/40/da/a1/40daa148ba5f9eb74cb5dee7eb75e97b.jpg')] lg:bg-[url('https://w0.peakpx.com/wallpaper/816/217/HD-wallpaper-beach-sea-beach-1440p-resolution-nature-and-background-beach-2560x1440.jpg')] lg:pl-10 md:text-yellow-50 bg-cover bg-no-repeat rounded-lg md:font-semibold px-3 md:shadow-2xl font-Playfair ">
                         <div>
-                            <h3 className="text-xl font-semibold">Contact Information</h3>
-                            <p className="text-gray-600">Say something to start a live chat</p>
+                            <h3 className="text-xl text-[#001F3F] font-semibold">Contact Information</h3>
+                            <p className="text-[#375c81] font-Dancing text-xl ">Say something to start a live chat</p>
                         </div>
 
                         <div className="flex items-center gap-5">
@@ -79,7 +79,7 @@ const ContactUs = () => {
                         </div>
 
                         {/* Social Links */}
-                        <div className="flex gap-8 text-3xl">
+                        <div className="flex gap-8 text-3xl lg:pl-10 pl-5 text-black lg:text-4xl">
                             <FaGithub
                                 onClick={() => window.open("https://github.com/Shawon-Reza?tab=repositories", "_blank")}
                                 className="cursor-pointer"
@@ -96,6 +96,7 @@ const ContactUs = () => {
                         </div>
                     </div>
 
+                    {/* Second Part.................................................... */}
                     {/* Contact Form */}
                     <div className="pb-20">
                         <form onSubmit={handleSubmit}>

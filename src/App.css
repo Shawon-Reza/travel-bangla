@@ -10,7 +10,6 @@
     --font-Playfair:  "Playfair Display", "serif";
     --animate-slowSpin: slowSpin 5s linear infinite;
 
-
     @keyframes slowSpin {
         0% {
             transform: rotate(0deg);
@@ -20,5 +19,4 @@
         }
     }
 }
-
 

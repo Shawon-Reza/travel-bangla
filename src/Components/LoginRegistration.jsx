@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import { FaGoogle, FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import 'animate.css';
 
 const LoginRegistration = () => {
     const emailRefSignIn = useRef();
@@ -37,7 +39,7 @@ const LoginRegistration = () => {
         const signUppassword = passwordRefSignUp.current.value;
 
         // Log inputs
-        const signupInfo={
+        const signupInfo = {
             signUpfullName,
             signUpemail,
             signUppassword
@@ -53,26 +55,35 @@ const LoginRegistration = () => {
     return (
         <div>
             <Navbar></Navbar>
+
             <div className="py-10 min-h-screen flex items-center justify-center bg-gray-100 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww')] bg-cover bg-no-repeat">
                 <div className="relative w-4/5 max-w-5xl h-[600px] bg-white shadow-2xl rounded-2xl overflow-hidden flex">
                     {/* Sliding Panel */}
                     <div
                         className={`hidden md:flex bg-[#b6c8c8] bg-[url('https://i.ibb.co.com/HfMbGmz9/about-banner.png')] bg-contain bg-no-repeat bg-center absolute top-0 h-full w-1/2 bg-gradient-to-r from-purple-500 to-blue-500 text-white flex flex-col items-center justify-center transition-transform duration-700 ${isSignIn ? "translate-x-[100%]" : "translate-x-0"}`}
                     >
-                        <h2 className="text-3xl font-bold mb-4 text-[#009999]">
+                        <h2 className="text-3xl font-bold mb-4 text-white">
                             {isSignIn ? "Hello, Friend!" : "Welcome Back!"}
                         </h2>
-                        <p className="mb-4 text-center">
-                            {isSignIn
-                                ? "Register with your personal details to start the journey."
-                                : "To keep connected with us please login with your personal info."}
-                        </p>
+                        <div className="relative w-full bg-[var(--your-bg-color)] py-3 flex justify-center overflow-hidden">
+                            <motion.p
+                                className="text-4xl -mt-5 text-yellow-100 font-Dancing  font-semibold whitespace-nowrap"
+                                animate={{ x: ["100%", "-100%"] }} // Moves text from right to left
+                                transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+                            >
+                                {isSignIn
+                                    ? "Register with your personal details to start the journey."
+                                    : "To keep connected with us please login with your personal info."}
+                            </motion.p>
+                        </div>
                         <button
                             onClick={() => setIsSignIn(!isSignIn)}
-                            className="border border-white px-6 py-2 rounded-lg hover:bg-white hover:text-purple-600 transition"
+                            className="animate__animated animate__flipInX px-6 py-2 rounded-lg bg-[#03adad] font-bold hover:shadow-2xl hover:bg-[#468080]  transition"
                         >
                             {isSignIn ? "SIGN UP" : "SIGN IN"}
                         </button>
+
+
                     </div>
 
                     <div className="flex">
@@ -80,7 +91,7 @@ const LoginRegistration = () => {
                         <div
                             className={`absolute top-0 left-[25%] md:left-0  w-1/2 h-full flex flex-col items-center justify-center md:p-8 transition-transform duration-700 ${isSignIn ? "translate-x-0" : "md:-translate-x-[100%] -translate-x-[200%]"}`}
                         >
-                            <h2 className="text-3xl font-bold mb-4">Sign In</h2>
+                            <h2 className="animate__animated animate__flipInX text-3xl font-bold mb-4">Sign In</h2>
                             <div className="flex space-x-4 mb-4">
                                 <button className="p-2 border rounded-full"><FaGoogle /></button>
                                 <button className="p-2 border rounded-full"><FaFacebookF /></button>
@@ -94,7 +105,7 @@ const LoginRegistration = () => {
                                     ref={emailRefSignIn}
                                     type="email"
                                     placeholder="Email"
-                                    className="md:w-full px-5 py-2 border rounded-lg mb-3"
+                                    className="w-full px-5 py-2 border rounded-lg mb-3"
                                 />
                                 <input
                                     ref={passwordRefSignIn}
@@ -127,7 +138,7 @@ const LoginRegistration = () => {
                         <div
                             className={`absolute top-0 md:right-0 right-[25%] w-1/2 h-full flex flex-col items-center justify-center p-8 transition-transform duration-700 ${isSignIn ? "md:translate-x-full translate-x-[200%]" : "translate-x-0"}`}
                         >
-                            <h2 className="text-3xl font-bold mb-4">Register</h2>
+                            <h2 className="animate__animated animate__flipInX  text-3xl font-bold mb-4">Register</h2>
                             <div className="flex space-x-4 mb-4">
                                 <button className="p-2 border rounded-full"><FaGoogle /></button>
                                 <button className="p-2 border rounded-full"><FaFacebookF /></button>

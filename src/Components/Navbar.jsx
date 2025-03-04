@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import 'animate.css';
 
 const Navbar = () => {
     const menuItems = (
@@ -29,7 +30,7 @@ const Navbar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl"><Link to="/">Travel Bnagla</Link></a>
+                    <a className="btn btn-ghost text-3xl animate__animated animate__flipInX font-Playfair"><Link to="/">Travel Bnagla</Link></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

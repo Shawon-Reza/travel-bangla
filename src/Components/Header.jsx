@@ -12,8 +12,8 @@ const Header = () => {
                 <p className="text-lg opacity-75 xl:text-2xl">I travel not to go anywhere, but to go. I travel for travel's sake the great affair is to move.</p>
 
                 <div className="space-x-5 py-5 md:pt-5 lg:pt-10 ">
-                    <button className="btn lg:btn-xl lg:rounded-xl hover:btn-accent  hover:text-white" >Contact US</button>
-                    <button className="btn lg:btn-xl  lg:rounded-xl hover:btn-accent hover:text-white">Learn More</button>
+                    <button className="btn lg:btn-lg lg:rounded-xl hover:btn-accent  hover:text-white" >Contact US</button>
+                    <button className="btn lg:btn-lg  lg:rounded-xl hover:btn-accent hover:text-white">Learn More</button>
                 </div>
             </div>
 
