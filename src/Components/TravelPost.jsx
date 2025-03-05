@@ -48,7 +48,7 @@ const TravelPost = () => {
         console.log("Submitted Data:", structuredData);
     
 
-        fetch('http://localhost:5000/travelpostadd', {
+        fetch('https://travel-bangla-server-six.vercel.app/travelpostadd', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
