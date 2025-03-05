@@ -12,6 +12,7 @@ import Booking from './Pages/Booking.jsx';
 import FindFriend from './Pages/FindFriend.jsx';
 import ContactUs from './Components/ContactUs.jsx';
 import LoginRegistration from './Components/LoginRegistration';
+import TravelPost from './Components/TravelPost.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path:"/loginregistration",
     element: <LoginRegistration></LoginRegistration>
+  },
+  {
+    path: "/travelPost",
+    element: <TravelPost></TravelPost>
   }
 ]);
 createRoot(document.getElementById('root')).render(

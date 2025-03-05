@@ -56,7 +56,7 @@ const LoginRegistration = () => {
         <div>
             <Navbar></Navbar>
 
-            <div className="py-10 min-h-screen flex items-center justify-center bg-gray-100 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww')] bg-cover bg-no-repeat">
+            <div className=" py-10 min-h-screen flex items-center justify-center bg-gray-100 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww')] bg-cover bg-no-repeat">
                 <div className="relative w-4/5 max-w-5xl h-[600px] bg-white shadow-2xl rounded-2xl overflow-hidden flex">
                     {/* Sliding Panel */}
                     <div
