@@ -18,5 +18,32 @@
             transform: rotate(360deg);
         }
     }
+    @keyframes slide {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%); /* Moves the entire content out of view */
+        }
+      }
 }
 
+.activities-container {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Wrapper to hold all the activities */
+.activities {
+  display: flex;
+  width: 100%;
+  animation: slide 10s infinite linear; /* Slide animation */
+}
+
+/* Individual activity item */
+.activity {
+  padding: 0 20px;
+  font-size: 16px;
+  /* white-space:nowrap; */
+  display: inline-block;
+}

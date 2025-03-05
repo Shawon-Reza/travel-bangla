@@ -26,14 +26,15 @@ const router = createBrowserRouter([
   ,
   {
     path: '/findfriends',
-    element: <FindFriend></FindFriend>
+    element: <FindFriend></FindFriend>,
+    loader:()=> fetch("http://localhost:5000/travelPostDetails")
   },
   {
     path: '/contactus',
     element: <ContactUs></ContactUs>
   },
   {
-    path:"/loginregistration",
+    path: "/loginregistration",
     element: <LoginRegistration></LoginRegistration>
   },
   {

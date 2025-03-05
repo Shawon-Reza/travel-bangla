@@ -11,6 +11,7 @@ const Navbar = () => {
             <li><NavLink to={'/findfriends'}>Find TravelMate</NavLink></li>
             <li><NavLink to={'/contactus'}>Contact us</NavLink></li>
             <li><NavLink to={'/loginregistration'}>Login</NavLink></li>
+            <li><NavLink to={'/travelPost'}>Tempory Check</NavLink></li>
            
         </>
     )
