@@ -27,7 +27,7 @@ const router = createBrowserRouter([
   {
     path: '/findfriends',
     element: <FindFriend></FindFriend>,
-    loader:()=> fetch("https://travel-bangla-server-six.vercel.app/travelPostDetails")
+    loader:()=> fetch("http://localhost:5000/travelPostDetails")
   },
   {
     path: '/contactus',

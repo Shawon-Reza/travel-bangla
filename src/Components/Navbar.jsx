@@ -12,13 +12,13 @@ const Navbar = () => {
             <li><NavLink to={'/contactus'}>Contact us</NavLink></li>
             <li><NavLink to={'/loginregistration'}>Login</NavLink></li>
             <li><NavLink to={'/travelPost'}>Tempory Check</NavLink></li>
-           
+
         </>
     )
 
     return (
         <div>
-            
+
             <div className="navbar shadow-sm px-5  bg-[#009999] text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -31,11 +31,16 @@ const Navbar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-3xl animate__animated animate__flipInX font-Playfair"><Link to="/">Travel Bnagla</Link></a>
+                    <a className="btn btn-ghost text-3xl animate__animated animate__flipInX font-Playfair">
+                        <Link to="/">
+                            <img src="https://i.ibb.co.com/rf5DNrTZ/Add-a-heading.gif" alt=""
+                                className='w-60'
+                            />
+                        </Link></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                       {menuItems}
+                        {menuItems}
                     </ul>
                 </div>
                 <div className="navbar-end">

@@ -3,11 +3,12 @@ import Header from "../Components/Header";
 import Navbar from "../Components/Navbar";
 
 const HomeLayout = () => {
-    
+
     return (
         <div className="">
             <Navbar />
             <Header></Header>
+
            
             <div className="mt-20">
                 <Footer />

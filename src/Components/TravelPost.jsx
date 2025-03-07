@@ -48,7 +48,7 @@ const TravelPost = () => {
         console.log("Submitted Data:", structuredData);
     
 
-        fetch('https://travel-bangla-server-six.vercel.app/travelpostadd', {
+        fetch('http://localhost:5000/travelpostadd', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -110,7 +110,7 @@ const TravelPost = () => {
                     <label className="block mb-2">End Date:</label>
                     <input type="date" name="end_date" className="w-full p-2 border rounded mb-3" required />
 
-                    <label className="block mb-2">Budget (Min - Max):</label>
+                    <label className="block mb-2">Budget (around figure):</label>
                     <input type="number" name="budget" className="w-full p-2 border rounded" required />
 
                     <label className="block mb-2">Group Size (Min - Max):</label>

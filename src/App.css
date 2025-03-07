@@ -42,8 +42,8 @@
 
 /* Individual activity item */
 .activity {
-  padding: 0 20px;
-  font-size: 16px;
+  padding: 0 2px;
+  font-size: 12px;
   /* white-space:nowrap; */
   display: inline-block;
 }

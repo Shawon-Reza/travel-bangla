@@ -10,7 +10,8 @@ import FindFriendPostDisplay from '../Components/FindFriendPostDisplay';
 const FindFriend = () => {
 
     const travelPostDetails = useLoaderData();
-    console.log("Travel detils: ", typeof travelPostDetails);
+    console.log("Travel details: ", typeof travelPostDetails);
+    console.log("Travel details: ",  travelPostDetails);
 
     return (
         <>
