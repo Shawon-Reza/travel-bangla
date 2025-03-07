@@ -8,7 +8,7 @@ const Navbar = () => {
             <li><NavLink to={'/'}>Home</NavLink></li>
             <li><NavLink to={''}>Tourism stops</NavLink></li>
             <li><NavLink to={'/booking'}>Booking</NavLink></li>
-            <li><NavLink to={'/findfriends'}>Find TravelMate</NavLink></li>
+            <li><NavLink to={'/connectWithOthers'}>Find TravelMate</NavLink></li>
             <li><NavLink to={'/contactus'}>Contact us</NavLink></li>
             <li><NavLink to={'/loginregistration'}>Login</NavLink></li>
             <li><NavLink to={'/travelPost'}>Tempory Check</NavLink></li>

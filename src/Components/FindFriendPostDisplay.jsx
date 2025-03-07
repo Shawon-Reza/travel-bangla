@@ -19,7 +19,7 @@ const FindFriendPostDisplay = ({ travelpost }) => {
         <div>
             <div className="card bg-base-100  shadow-sm relative">
                 {/* Carousel for destination images */}
-                <div className="carousel sm:w-[600px] lg:w-full shadow-xl relative">
+                <div className="carousel sm:w-full lg:w-full shadow-xl relative">
                     {travelpost.destination_images?.length > 0 ? (
                         <div className="relative w-full">
                             <img

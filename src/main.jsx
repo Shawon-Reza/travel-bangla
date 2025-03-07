@@ -13,6 +13,9 @@ import FindFriend from './Pages/FindFriend.jsx';
 import ContactUs from './Components/ContactUs.jsx';
 import LoginRegistration from './Components/LoginRegistration';
 import TravelPost from './Components/TravelPost.jsx';
+import ConnectWithOthers from './Layout/ConnectWithOthers.jsx';
+import { path } from 'framer-motion/client';
+import { element } from 'three/tsl';
 
 const router = createBrowserRouter([
   {
@@ -20,14 +23,23 @@ const router = createBrowserRouter([
     element: <HomeLayout></HomeLayout>,
   },
   {
+    path: "/connectWithOthers",
+    element: <ConnectWithOthers></ConnectWithOthers>
+
+  },
+  {
     path: '/booking',
-    element: <Booking></Booking>
+    element: <Booking></Booking>,
+    // children: {
+    //   path:'/',
+    //   element: 
+    // }
   }
   ,
   {
     path: '/findfriends',
     element: <FindFriend></FindFriend>,
-    loader:()=> fetch("http://localhost:5000/travelPostDetails")
+    // loader:()=> fetch("http://localhost:5000/travelPostDetails")
   },
   {
     path: '/contactus',
