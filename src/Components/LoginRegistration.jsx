@@ -1,9 +1,11 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { motion } from "framer-motion";
 import { FaGoogle, FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import 'animate.css';
+import { AuthContex } from "../Provider/AuthProvider";
+import { toast, ToastContainer } from "react-toastify";
 
 const LoginRegistration = () => {
     const emailRefSignIn = useRef();
@@ -12,12 +14,23 @@ const LoginRegistration = () => {
     const passwordRefSignUp = useRef();
     const fullNameRefSignUp = useRef();
 
+    const { createUser, loginWithEmail, emailVarification } = useContext(AuthContex)
+    // console.log(emailVarification);
+
     // Handle Sign In form submission
     const handleSignInSubmit = (e) => {
         e.preventDefault();
 
         const signinemail = emailRefSignIn.current.value;
         const signinpassword = passwordRefSignIn.current.value;
+        // Logging Using Email-password
+        loginWithEmail(signinemail, signinpassword)
+            .then(userCredential => {
+                console.log(userCredential.user);
+            })
+            .catch(error => {
+                console.log("Error on login :", error.message);
+            })
 
         // Log inputs
         const signinInfo = {
@@ -38,6 +51,24 @@ const LoginRegistration = () => {
         const signUpemail = emailRefSignUp.current.value;
         const signUppassword = passwordRefSignUp.current.value;
 
+        //    Create USer using Forebase eamil based
+        createUser(signUpemail, signUppassword)
+            .then(userCredential => {
+                console.log(userCredential.user);
+                // Email Verification
+                emailVarification()
+                    .then(() => {
+                        console.log("Email varification sent");
+                        toast.success("Verification mail sent")
+                    })
+                    .catch(error => {
+                        console.log("Error on send verification: ", error.mesage);
+                    })
+            })
+            .catch(error => {
+                console.log("Error on Create User :", error.message);
+            })
+
         // Log inputs
         const signupInfo = {
             signUpfullName,
@@ -45,6 +76,8 @@ const LoginRegistration = () => {
             signUppassword
         }
         console.log("Sign Up", signupInfo);
+
+
 
         // Reset the form fields
         e.target.reset();
@@ -54,6 +87,7 @@ const LoginRegistration = () => {
 
     return (
         <div>
+            <ToastContainer />
             <Navbar></Navbar>
 
             <div className=" py-10 min-h-screen flex items-center justify-center bg-gray-100 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww')] bg-cover bg-no-repeat">

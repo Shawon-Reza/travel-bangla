@@ -46,7 +46,7 @@ const TravelPost = () => {
         };
 
         console.log("Submitted Data:", structuredData);
-    
+
 
         fetch('http://localhost:5000/travelpostadd', {
             method: "POST",
@@ -77,85 +77,103 @@ const TravelPost = () => {
     return (
         <>
             <div>
-                <Navbar></Navbar>
+                {/* <Navbar></Navbar> */}
             </div>
             <ToastContainer />
 
-            <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-xl">
+            <div className="max-w-l mx-auto p-6 bg-white shadow-2xl rounded-xl">
                 <h2 className="text-2xl font-bold mb-4">Create Travel Post</h2>
                 {error && <div className="bg-red-500 text-white p-2 mb-4 rounded">{error}</div>} {/* Error message */}
 
                 <form onSubmit={handleSubmit}>
-                    <label className="block mb-2">Group Name:</label>
-                    <input type="text" name="group_name" className="w-full p-2 border rounded mb-3" required />
+                    <div className='lg:grid lg:grid-cols-2 lg:gap-10'>
+                        <div className=''>
+                            <label className="block mb-2">Group Name:</label>
+                            <input type="text" name="group_name" className="w-full p-2 border rounded mb-3" required />
 
-                    <label className="block mb-2">Description:</label>
-                    <textarea name="description" className="w-full p-2 border rounded mb-3" required />
+                            <label className="block mb-2">Description:</label>
+                            <textarea
+                                name="description"
+                                rows="3"
+                                className="w-full p-2 border rounded mb-3"
+                                required
+                                placeholder='Write someting about your trip plan in details.'
+                            ></textarea>
 
-                    <label className="block mb-2">Departure Location:</label>
-                    <input type="text" name="departure_location" className="w-full p-2 border rounded mb-3" required />
 
-                    <label className="block mb-2">Destination:</label>
-                    <input type="text" name="destination" className="w-full p-2 border rounded mb-3" required />
+                            <label className="block mb-2">Departure Location:</label>
+                            <input type="text" name="departure_location" className="w-full p-2 border rounded mb-3" required />
 
-                    <label className="block mb-2">Total trip days:</label>
-                    <input type="number" name="totalTripdays" className="w-full p-2 border rounded mb-3" required />
+                            <label className="block mb-2">Destination:</label>
+                            <input type="text" name="destination" className="w-full p-2 border rounded mb-3" required />
 
-                    <label className="block mb-2">Destination Images (comma separated URLs):</label>
-                    <input type="text" name="destination_images" className="w-full p-2 border rounded mb-3" placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg" required />
+                            <label className="block mb-2">Total trip days:</label>
+                            <input type="number" name="totalTripdays" className="w-full p-2 border rounded mb-3" required />
 
-                    <label className="block mb-2">Start Date:</label>
-                    <input type="date" name="start_date" className="w-full p-2 border rounded mb-3" required />
+                            <label className="block mb-2">Destination Images (comma separated URLs):</label>
+                            <textarea
+                                name="destination_images"
+                                rows={3}
+                                className="w-full p-2 border rounded mb-3"
+                                placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg"
+                                required
+                            ></textarea>
 
-                    <label className="block mb-2">End Date:</label>
-                    <input type="date" name="end_date" className="w-full p-2 border rounded mb-3" required />
+                            <label className="block mb-2">Start Date:</label>
+                            <input type="date" name="start_date" className="w-full p-2 border rounded mb-3" required />
 
-                    <label className="block mb-2">Budget (around figure):</label>
-                    <input type="number" name="budget" className="w-full p-2 border rounded" required />
+                            <label className="block mb-2">End Date:</label>
+                            <input type="date" name="end_date" className="w-full p-2 border rounded mb-3" required />
 
-                    <label className="block mb-2">Group Size (Min - Max):</label>
-                    <div className="flex space-x-2 mb-3">
-                        <input type="number" name="group_size_min" className="w-1/2 p-2 border rounded" required />
-                        <input type="number" name="group_size_max" className="w-1/2 p-2 border rounded" required />
+                            <label className="block mb-2">Budget (around figure):</label>
+                            <input type="number" name="budget" className="w-full p-2 border rounded" required />
+
+
+                        </div>
+
+
+                        <div>
+
+
+                            <label className="block mb-2">Transportation Mode:</label>
+                            <input type="text" name="transportation_mode" className="w-full p-2 border rounded mb-3" required />
+
+                            <label className="block mb-2">Transportation Details:</label>
+                            <input type="text" name="transportation_details" className="w-full p-2 border rounded mb-3" required />
+
+                            <label className="block mb-2">Activities (comma separated):</label>
+                            <input type="text" name="activities" className="w-full p-2 border rounded mb-3" placeholder="snorkeling, hiking, beach parties" required />
+
+                            <label className="block mb-2">Host Name:</label>
+                            <input type="text" name="host_name" className="w-full p-2 border rounded mb-3" required />
+
+                            <label className="block mb-2">Host Contact (Email):</label>
+                            <input type="email" name="host_contact" className="w-full p-2 border rounded mb-3" required />
+
+                            <label className="block mb-2">Phone Number:</label>
+                            <input type="tel" name="host_phone" className="w-full p-2 border rounded mb-3" required />
+
+                            <label className="block mb-2">Facebook Link:</label>
+                            <input type="url" name="host_facebook" className="w-full p-2 border rounded mb-3" />
+
+                            <label className="block mb-2">WhatsApp Link:</label>
+                            <input type="url" name="host_whatsapp" className="w-full p-2 border rounded mb-3" />
+
+
+                            <label className="block mb-2">Joining Requirements:</label>
+                            <textarea name="joining_requirements" className="w-full p-2 border rounded mb-3" required />
+
+                            <label className="block mb-2">Expiry Time (Days):</label>
+                            <input type="number" name="expiry_seconds" className="w-full p-2 border rounded mb-3" required />
+                        </div>
                     </div>
-
-                    <label className="block mb-2">Transportation Mode:</label>
-                    <input type="text" name="transportation_mode" className="w-full p-2 border rounded mb-3" required />
-
-                    <label className="block mb-2">Transportation Details:</label>
-                    <input type="text" name="transportation_details" className="w-full p-2 border rounded mb-3" required />
-
-                    <label className="block mb-2">Activities (comma separated):</label>
-                    <input type="text" name="activities" className="w-full p-2 border rounded mb-3" placeholder="snorkeling, hiking, beach parties" required />
-
-                    <label className="block mb-2">Host Name:</label>
-                    <input type="text" name="host_name" className="w-full p-2 border rounded mb-3" required />
-
-                    <label className="block mb-2">Host Contact (Email):</label>
-                    <input type="email" name="host_contact" className="w-full p-2 border rounded mb-3" required />
-
-                    <label className="block mb-2">Phone Number:</label>
-                    <input type="tel" name="host_phone" className="w-full p-2 border rounded mb-3" required />
-
-                    <label className="block mb-2">Facebook Link:</label>
-                    <input type="url" name="host_facebook" className="w-full p-2 border rounded mb-3" />
-
-                    <label className="block mb-2">WhatsApp Link:</label>
-                    <input type="url" name="host_whatsapp" className="w-full p-2 border rounded mb-3" />
-
-
-                    <label className="block mb-2">Joining Requirements:</label>
-                    <textarea name="joining_requirements" className="w-full p-2 border rounded mb-3" required />
-
-                    <label className="block mb-2">Expiry Time (Days):</label>
-                    <input type="number" name="expiry_seconds" className="w-full p-2 border rounded mb-3" required />
 
                     <button type="submit" className="w-full p-2 bg-blue-500 text-white font-bold rounded">Submit</button>
                 </form>
             </div>
 
             <div>
-                <Footer></Footer>
+                {/* <Footer></Footer> */}
             </div>
         </>
     );

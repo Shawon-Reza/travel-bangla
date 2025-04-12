@@ -16,6 +16,8 @@ import TravelPost from './Components/TravelPost.jsx';
 import ConnectWithOthers from './Layout/ConnectWithOthers.jsx';
 import { path } from 'framer-motion/client';
 import { element } from 'three/tsl';
+import Admin from './Layout/Admin.jsx';
+import AuthProvider from './Provider/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,10 @@ const router = createBrowserRouter([
     //   path:'/',
     //   element: 
     // }
+  },
+  {
+    path: "/admin",
+    element: <Admin></Admin>
   }
   ,
   {
@@ -56,6 +62,9 @@ const router = createBrowserRouter([
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <AuthProvider>
     <RouterProvider router={router} />
+
+    </AuthProvider>
   </StrictMode>,
 )
