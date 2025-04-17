@@ -14,7 +14,7 @@ const LoginRegistration = () => {
     const passwordRefSignUp = useRef();
     const fullNameRefSignUp = useRef();
 
-    const { createUser, loginWithEmail, emailVarification } = useContext(AuthContex)
+    const { createUser, loginWithEmail, emailVarification, googleLogin } = useContext(AuthContex)
     // console.log(emailVarification);
 
     // Handle Sign In form submission
@@ -83,6 +83,19 @@ const LoginRegistration = () => {
         e.target.reset();
     };
 
+    // Google Signin
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                console.log(result.user);
+                toast.success("Logged in with Google!");
+            })
+            .catch(error => {
+                console.error("Error on Google Sign-in:", error.message);
+                toast.error("Google Sign-in failed");
+            });
+    };
+
     const [isSignIn, setIsSignIn] = React.useState(true);
 
     return (
@@ -127,7 +140,10 @@ const LoginRegistration = () => {
                         >
                             <h2 className="animate__animated animate__flipInX text-3xl font-bold mb-4">Sign In</h2>
                             <div className="flex space-x-4 mb-4">
-                                <button className="p-2 border rounded-full"><FaGoogle /></button>
+                                <button className="p-2 border rounded-full cursor-pointer"
+                                    onClick={handleGoogleLogin}
+                                ><FaGoogle /></button>
+
                                 <button className="p-2 border rounded-full"><FaFacebookF /></button>
                                 <button className="p-2 border rounded-full"><FaGithub /></button>
                                 <button className="p-2 border rounded-full"><FaLinkedinIn /></button>

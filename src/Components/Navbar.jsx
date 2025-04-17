@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import 'animate.css';
+import { AuthContex } from '../Provider/AuthProvider';
+import { button } from 'framer-motion/client';
 
 const Navbar = () => {
+    const { loginUser,logout } = useContext(AuthContex)
+    // console.log(loginUser);
+
     const menuItems = (
         <>
             <li><NavLink to={'/'}>Home</NavLink></li>
@@ -10,7 +15,9 @@ const Navbar = () => {
             <li><NavLink to={'/booking'}>Booking</NavLink></li>
             <li><NavLink to={'/connectWithOthers'}>Find TravelMate</NavLink></li>
             <li><NavLink to={'/contactus'}>Contact us</NavLink></li>
-            <li><NavLink to={'/loginregistration'}>Login</NavLink></li>
+            <li><NavLink to={'/loginregistration'}>
+                {loginUser ? (<button onClick={logout}>Logout</button>) : (<button>Login</button>)}
+            </NavLink></li>
             <li><NavLink to={'/admin'}>Admin</NavLink></li>
 
         </>
