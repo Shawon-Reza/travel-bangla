@@ -18,6 +18,7 @@ import { path } from 'framer-motion/client';
 import { element } from 'three/tsl';
 import Admin from './Layout/Admin.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import PrivetRoute from './PrivetRoute/PrivetRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -57,14 +58,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/travelPost",
-    element: <TravelPost></TravelPost>
+    element: <PrivetRoute> <TravelPost></TravelPost></PrivetRoute>
   }
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-    <RouterProvider router={router} />
-
+      <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>,
 )

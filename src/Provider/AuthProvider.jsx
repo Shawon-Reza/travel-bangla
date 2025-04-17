@@ -5,7 +5,12 @@ import { auth } from '../Firebase/firebase.init';
 export const AuthContex = createContext(null);
 
 const AuthProvider = ({ children }) => {
+
     const [loginUser, setLoginUser] = useState(null);
+    const [userLoading, setUserLoading] = useState(true)
+
+
+
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -42,9 +47,12 @@ const AuthProvider = ({ children }) => {
             if (user) {
                 console.log("User signed in:", user);
                 setLoginUser(user);
+                setUserLoading(false)
             } else {
                 console.log("No user signed in");
                 setLoginUser(null);
+                setUserLoading(false)
+
             }
         });
 
@@ -57,7 +65,8 @@ const AuthProvider = ({ children }) => {
         emailVarification,
         loginUser,
         logout,
-        googleLogin
+        googleLogin,
+        userLoading
     };
 
     return (

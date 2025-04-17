@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import 'animate.css';
 import { AuthContex } from "../Provider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const LoginRegistration = () => {
     const emailRefSignIn = useRef();
@@ -13,6 +14,13 @@ const LoginRegistration = () => {
     const emailRefSignUp = useRef();
     const passwordRefSignUp = useRef();
     const fullNameRefSignUp = useRef();
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
+
+    // console.log(location);
+    console.log(from);
 
     const { createUser, loginWithEmail, emailVarification, googleLogin } = useContext(AuthContex)
     // console.log(emailVarification);
@@ -27,6 +35,7 @@ const LoginRegistration = () => {
         loginWithEmail(signinemail, signinpassword)
             .then(userCredential => {
                 console.log(userCredential.user);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log("Error on login :", error.message);

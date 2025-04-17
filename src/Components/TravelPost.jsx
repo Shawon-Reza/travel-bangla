@@ -17,7 +17,7 @@ const TravelPost = () => {
             departure_location: data.departure_location,
             destination: data.destination,
             totalTripdays: data.totalTripdays,
-
+            travel_category: data.travel_category,
             destination_images: data.destination_images.split(','), // Split image URLs by comma
             startDate: data.start_date,
             endDate: data.end_date,
@@ -77,16 +77,16 @@ const TravelPost = () => {
     return (
         <>
             <div>
-                {/* <Navbar></Navbar> */}
+                <Navbar></Navbar>
             </div>
             <ToastContainer />
 
-            <div className="max-w-l mx-auto p-6 bg-white shadow-2xl rounded-xl">
+            <div className="max-w-l mx-auto p-6 bg-white shadow-2xl rounded-xl px-10">
                 <h2 className="text-2xl font-bold mb-4">Create Travel Post</h2>
                 {error && <div className="bg-red-500 text-white p-2 mb-4 rounded">{error}</div>} {/* Error message */}
 
                 <form onSubmit={handleSubmit}>
-                    <div className='lg:grid lg:grid-cols-2 lg:gap-10'>
+                    <div className='md:grid lg:grid-cols-3 md:grid-cols-2 md:gap-10'>
                         <div className=''>
                             <label className="block mb-2">Group Name:</label>
                             <input type="text" name="group_name" className="w-full p-2 border rounded mb-3" required />
@@ -119,6 +119,11 @@ const TravelPost = () => {
                                 required
                             ></textarea>
 
+
+
+                        </div>
+
+                        <div>
                             <label className="block mb-2">Start Date:</label>
                             <input type="date" name="start_date" className="w-full p-2 border rounded mb-3" required />
 
@@ -127,13 +132,6 @@ const TravelPost = () => {
 
                             <label className="block mb-2">Budget (around figure):</label>
                             <input type="number" name="budget" className="w-full p-2 border rounded" required />
-
-
-                        </div>
-
-
-                        <div>
-
 
                             <label className="block mb-2">Transportation Mode:</label>
                             <input type="text" name="transportation_mode" className="w-full p-2 border rounded mb-3" required />
@@ -146,6 +144,12 @@ const TravelPost = () => {
 
                             <label className="block mb-2">Host Name:</label>
                             <input type="text" name="host_name" className="w-full p-2 border rounded mb-3" required />
+
+
+                        </div>
+
+
+                        <div>
 
                             <label className="block mb-2">Host Contact (Email):</label>
                             <input type="email" name="host_contact" className="w-full p-2 border rounded mb-3" required />
@@ -163,7 +167,19 @@ const TravelPost = () => {
                             <label className="block mb-2">Joining Requirements:</label>
                             <textarea name="joining_requirements" className="w-full p-2 border rounded mb-3" required />
 
-                            <label className="block mb-2">Expiry Time (Days):</label>
+
+
+                            <label className="block mb-2">Travel Category:</label>
+                            <select name="travel_category" className="w-full p-2 border rounded mb-3" required>
+                                <option value="">-- Select Category --</option>
+                                <option value="forest">Forest</option>
+                                <option value="sea">Sea</option>
+                                <option value="mountain">Mountain</option>
+                                <option value="desert">Desert</option>
+                                <option value="city">City</option>
+                            </select>
+
+                            <label className="block mb-2">Post Expiry Time (Days):</label>
                             <input type="number" name="expiry_seconds" className="w-full p-2 border rounded mb-3" required />
                         </div>
                     </div>
@@ -173,7 +189,7 @@ const TravelPost = () => {
             </div>
 
             <div>
-                {/* <Footer></Footer> */}
+                <Footer></Footer>
             </div>
         </>
     );

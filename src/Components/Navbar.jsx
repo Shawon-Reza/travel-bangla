@@ -14,6 +14,7 @@ const Navbar = () => {
             <li><NavLink to={''}>Tourism stops</NavLink></li>
             <li><NavLink to={'/booking'}>Booking</NavLink></li>
             <li><NavLink to={'/connectWithOthers'}>Find TravelMate</NavLink></li>
+            <li><NavLink to={'/'}>Post</NavLink></li>
             <li><NavLink to={'/contactus'}>Contact us</NavLink></li>
             <li><NavLink to={'/loginregistration'}>
                 {loginUser ? (<button onClick={logout}>Logout</button>) : (<button>Login</button>)}

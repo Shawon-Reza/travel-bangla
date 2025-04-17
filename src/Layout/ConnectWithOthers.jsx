@@ -3,6 +3,8 @@ import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import FindFriendLeftside from '../Components/FindFriendLeftside';
 import FindFriend from '../Pages/FindFriend';
+import { NavLink } from 'react-router-dom';
+import TravelPost from './../Components/TravelPost';
 
 const ConnectWithOthers = () => {
     return (
@@ -15,13 +17,22 @@ const ConnectWithOthers = () => {
                 </div>
 
                 <div className='col-span-9 xl:col-span-10'>
-                    <FindFriend></FindFriend>
+
+                    <NavLink to={'/TravelPost'}>
+                        <button className='ml-15 btn mt-3 -mb-5'>Add tour Travel post</button>
+                    </NavLink>
+
+                    <div className='col-span-9 xl:col-span-10'>
+                        <FindFriend></FindFriend>
+                    </div>
                 </div>
             </div>
 
 
 
-            <Footer></Footer>
+            <div className='mt-10'>
+                <Footer></Footer>
+            </div>
         </div>
     );
 };
