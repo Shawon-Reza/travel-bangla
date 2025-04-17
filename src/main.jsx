@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 import HomeLayout from './Layout/HomeLayout.jsx';
 import Booking from './Pages/Booking.jsx';
-import FindFriend from './Pages/FindFriend.jsx';
 import ContactUs from './Components/ContactUs.jsx';
 import LoginRegistration from './Components/LoginRegistration';
 import TravelPost from './Components/TravelPost.jsx';
@@ -43,11 +42,7 @@ const router = createBrowserRouter([
     element: <Admin></Admin>
   }
   ,
-  {
-    path: '/findfriends',
-    element: <FindFriend></FindFriend>,
-    // loader:()=> fetch("http://localhost:5000/travelPostDetails")
-  },
+  
   {
     path: '/contactus',
     element: <ContactUs></ContactUs>
