@@ -18,6 +18,7 @@ import { element } from 'three/tsl';
 import Admin from './Layout/Admin.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import PrivetRoute from './PrivetRoute/PrivetRoute.jsx';
+import AdminControl from './Layout/AdminControl.jsx';
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
     element: <Admin></Admin>
   }
   ,
-  
+
   {
     path: '/contactus',
     element: <ContactUs></ContactUs>
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
   {
     path: "/travelPost",
     element: <PrivetRoute> <TravelPost></TravelPost></PrivetRoute>
+  },
+  {
+    path: "/admincontrol",
+    element: <AdminControl></AdminControl>
   }
 ]);
 createRoot(document.getElementById('root')).render(

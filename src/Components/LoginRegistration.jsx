@@ -98,6 +98,7 @@ const LoginRegistration = () => {
             .then(result => {
                 console.log(result.user);
                 toast.success("Logged in with Google!");
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error("Error on Google Sign-in:", error.message);
