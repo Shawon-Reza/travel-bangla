@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { CiTimer } from 'react-icons/ci';
 import { IoIosTimer } from 'react-icons/io';
+import { NavLink } from 'react-router-dom';
 const AdminpostsDisplay = ({ posts }) => {
 
     console.log(posts);
+
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const handleSlide = (direction) => {
@@ -65,8 +67,10 @@ const AdminpostsDisplay = ({ posts }) => {
                             </div>
                         </div>
 
-                        <button className="btn btn-primary">Details</button>
-                        
+                        <NavLink to={`/travelpostdetails/${posts._id}`}>
+                            <button className="btn btn-primary">Details</button>
+                        </NavLink>
+
                     </div>
                 </div>
 

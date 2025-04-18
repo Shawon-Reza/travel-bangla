@@ -22,6 +22,7 @@ import AdminControl from './Layout/AdminControl.jsx';
 import AdminTravelPostForm from './Components/AdminTravelPostForm.jsx';
 import AdminSideTravelPostDisplay from './Components/AdminSideTravelPostDisplay.jsx';
 import Review from './Components/Review.jsx';
+import AdminTravelPostDetails from './Components/AdminTravelPostDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,12 @@ const router = createBrowserRouter([
   {
     path: "/travelPost",
     element: <PrivetRoute> <TravelPost></TravelPost></PrivetRoute>
+  },
+  {
+    path: "/travelpostdetails/:_id",
+    element: <AdminTravelPostDetails></AdminTravelPostDetails>,
+    loader: ({ params }) => fetch(`http://localhost:5000/travelpostdetails/${params._id}`)
+
   },
 
   {
