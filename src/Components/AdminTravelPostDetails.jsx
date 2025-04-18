@@ -10,7 +10,7 @@ const AdminTravelPostDetails = () => {
     return (
         <div>
             <Navbar />
-            <div className="max-w-4xl mx-auto p-5 mt-10">
+            <div className="max-w-4xl mx-auto p-5 mt-t">
                 <div className="card shadow-lg rounded-xl overflow-hidden bg-white">
                     {/* Card Header: Destination */}
                     <div className="bg-blue-500 text-white text-center p-5">
@@ -33,9 +33,26 @@ const AdminTravelPostDetails = () => {
                                     ))}
                                 </ul>
                             </div>
+
+                            <div className="mt-5 hidden lg:block">
+                                <h3 className="text-xl font-semibold mb-2">Trip Details</h3>
+                                <p><strong>Start Date:</strong> {data.startDate}</p>
+                                <p><strong>End Date:</strong> {data.endDate}</p>
+                                <p><strong>Total Days:</strong> {data.totalTripdays} days</p>
+                                <p><strong>Budget:</strong> ${data.budget}</p>
+                                <p><strong>Departure Location:</strong> {data.departure_location}</p>
+                                <p><strong>Joining Requirements:</strong> {data.joining_requirements}</p>
+                                <p><strong>Group Size:</strong> {data.group_size.min} - {data.group_size.max}</p>
+                            </div>
+
+                            <div className="mt-5 hidden lg:block">
+                                <h3 className="text-xl font-semibold mb-2">Transportation</h3>
+                                <p><strong>Mode:</strong> {data.transportation.mode}</p>
+                                <p><strong>Details:</strong> {data.transportation.details}</p>
+                            </div>
                         </div>
 
-                        <div className="mt-5">
+                        <div className="mt-5 lg:hidden">
                             <h3 className="text-xl font-semibold mb-2">Trip Details</h3>
                             <p><strong>Start Date:</strong> {data.startDate}</p>
                             <p><strong>End Date:</strong> {data.endDate}</p>
@@ -47,7 +64,7 @@ const AdminTravelPostDetails = () => {
                         </div>
 
                         {/* Transportation */}
-                        <div className="mt-5">
+                        <div className="mt-5 lg:hidden">
                             <h3 className="text-xl font-semibold mb-2">Transportation</h3>
                             <p><strong>Mode:</strong> {data.transportation.mode}</p>
                             <p><strong>Details:</strong> {data.transportation.details}</p>
