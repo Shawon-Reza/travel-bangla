@@ -13,11 +13,11 @@ const AdminControl = () => {
 
             <section className='grid grid-cols-12 my-10 container mx-auto px-5'>
 
-                <div className='col-span-4 flex flex-col'>
-                    <NavLink to={'#'}>
+                <div className='col-span-4 lg:col-span-3 flex flex-col'>
+                    <NavLink to={'/admincontrol'}>
                         <button className='btn'>Add tours</button>
                     </NavLink>
-                    <NavLink to={'/adminsidetravelpost'}>
+                    <NavLink to={'adminsidetravelpost'}>
                         <button className='btn'>Tour Posts</button>
                     </NavLink>
                     <NavLink to={'#'}>
@@ -26,7 +26,7 @@ const AdminControl = () => {
                 </div>
 
 
-                <div className='col-span-8'>
+                <div className='col-span-8 lg:col-span-9'>
                     <Outlet></Outlet>
                 </div>
 

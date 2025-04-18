@@ -43,13 +43,7 @@ const router = createBrowserRouter([
     path: "/admin",
     element: <Admin></Admin>
   },
-  {
-    path: '/adminsidetravelpost',
-    element: <AdminSideTravelPostDisplay></AdminSideTravelPostDisplay>,
-    loader: () => fetch('http://localhost:5000/admin/travelposts')
-
-
-  },
+  
   {
     path: '/contactus',
     element: <ContactUs></ContactUs>
@@ -67,12 +61,22 @@ const router = createBrowserRouter([
     element: <AdminControl></AdminControl>,
     children: [
       {
-        path: '/admincontrol',
+        path: '',
         element: <AdminTravelPostForm></AdminTravelPostForm>
-      }
+      },
+      {
+        path: 'adminsidetravelpost',
+        element: <AdminSideTravelPostDisplay></AdminSideTravelPostDisplay>,
+        loader: () => fetch('http://localhost:5000/admin/travelposts')
+    
+      },
     ]
   }
+
+
+
 ]);
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>

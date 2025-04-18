@@ -10,20 +10,13 @@ const AdminSideTravelPostDisplay = () => {
 
     return (
         <div>
-            <div>  <Navbar /></div>
-
-
-            <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 container mx-auto px-5">
+            <div className=" grid grid-cols-1 lg:grid-cols-2 gap-5 container mx-auto px-5">
                 {
                     adminTravelPosts.map((posts, idx) => <AdminTravelPostDisplay
                         key={idx}
                         posts={posts}>
                     </AdminTravelPostDisplay>)
                 }
-            </div>
-
-            <div>
-                <Footer />
             </div>
         </div>
     );
