@@ -21,6 +21,7 @@ import PrivetRoute from './PrivetRoute/PrivetRoute.jsx';
 import AdminControl from './Layout/AdminControl.jsx';
 import AdminTravelPostForm from './Components/AdminTravelPostForm.jsx';
 import AdminSideTravelPostDisplay from './Components/AdminSideTravelPostDisplay.jsx';
+import Review from './Components/Review.jsx';
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
     path: "/admin",
     element: <Admin></Admin>
   },
-  
+
   {
     path: '/contactus',
     element: <ContactUs></ContactUs>
@@ -56,6 +57,7 @@ const router = createBrowserRouter([
     path: "/travelPost",
     element: <PrivetRoute> <TravelPost></TravelPost></PrivetRoute>
   },
+
   {
     path: "/admincontrol",
     element: <AdminControl></AdminControl>,
@@ -68,7 +70,12 @@ const router = createBrowserRouter([
         path: 'adminsidetravelpost',
         element: <AdminSideTravelPostDisplay></AdminSideTravelPostDisplay>,
         loader: () => fetch('http://localhost:5000/admin/travelposts')
-    
+
+      },
+      {
+        path: "reviews",
+        element: <Review></Review>,
+        loader: () => fetch('http://localhost:5000/admin/reviews')
       },
     ]
   }

@@ -66,6 +66,7 @@ const AdminpostsDisplay = ({ posts }) => {
                         </div>
 
                         <button className="btn btn-primary">Details</button>
+                        
                     </div>
                 </div>
 
