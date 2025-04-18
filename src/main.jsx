@@ -19,6 +19,8 @@ import Admin from './Layout/Admin.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import PrivetRoute from './PrivetRoute/PrivetRoute.jsx';
 import AdminControl from './Layout/AdminControl.jsx';
+import AdminTravelPostForm from './Components/AdminTravelPostForm.jsx';
+import AdminSideTravelPostDisplay from './Components/AdminSideTravelPostDisplay.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,18 +34,22 @@ const router = createBrowserRouter([
   },
   {
     path: '/booking',
-    element: <Booking></Booking>,
-    // children: {
-    //   path:'/',
-    //   element: 
-    // }
-  },
+    element: <Booking />,
+    loader: () => fetch('http://localhost:5000/admin/travelposts')
+  }
+
+  ,
   {
     path: "/admin",
     element: <Admin></Admin>
-  }
-  ,
+  },
+  {
+    path: '/adminsidetravelpost',
+    element: <AdminSideTravelPostDisplay></AdminSideTravelPostDisplay>,
+    loader: () => fetch('http://localhost:5000/admin/travelposts')
 
+
+  },
   {
     path: '/contactus',
     element: <ContactUs></ContactUs>
@@ -58,7 +64,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/admincontrol",
-    element: <AdminControl></AdminControl>
+    element: <AdminControl></AdminControl>,
+    children: [
+      {
+        path: '/admincontrol',
+        element: <AdminTravelPostForm></AdminTravelPostForm>
+      }
+    ]
   }
 ]);
 createRoot(document.getElementById('root')).render(

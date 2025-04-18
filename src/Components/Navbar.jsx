@@ -5,16 +5,15 @@ import { AuthContex } from '../Provider/AuthProvider';
 import { button } from 'framer-motion/client';
 
 const Navbar = () => {
-    const { loginUser,logout } = useContext(AuthContex)
+    const { loginUser, logout } = useContext(AuthContex)
     // console.log(loginUser);
 
     const menuItems = (
         <>
             <li><NavLink to={'/'}>Home</NavLink></li>
             <li><NavLink to={''}>Tourism stops</NavLink></li>
-            <li><NavLink to={'/booking'}>Booking</NavLink></li>
-            <li><NavLink to={'/connectWithOthers'}>Find TravelMate</NavLink></li>
-            <li><NavLink to={'/'}>Post</NavLink></li>
+            <li><NavLink to={'/booking'}>Book tours</NavLink></li>
+            <li><NavLink to={'/connectWithOthers'}>Travel Post</NavLink></li>
             <li><NavLink to={'/contactus'}>Contact us</NavLink></li>
             <li><NavLink to={'/loginregistration'}>
                 {loginUser ? (<button onClick={logout}>Logout</button>) : (<button>Login</button>)}

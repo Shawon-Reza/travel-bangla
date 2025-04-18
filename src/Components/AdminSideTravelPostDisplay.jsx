@@ -1,17 +1,17 @@
-import { useLoaderData } from "react-router-dom";
-import Footer from "../Components/Footer";
-import Navbar from "../Components/Navbar";
+import React from 'react';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import { useLoaderData } from 'react-router-dom';
 import AdminTravelPostDisplay from "../Components/AdminTravelPostDisplay";
 
-const Booking = () => {
-
+const AdminSideTravelPostDisplay = () => {
     const adminTravelPosts = useLoaderData();
     console.log(adminTravelPosts);
+
     return (
         <div>
-            <div>
-                <Navbar></Navbar>
-            </div>
+            <div>  <Navbar /></div>
+
 
             <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 container mx-auto px-5">
                 {
@@ -22,12 +22,11 @@ const Booking = () => {
                 }
             </div>
 
-
             <div>
-                <Footer></Footer>
+                <Footer />
             </div>
         </div>
     );
 };
 
-export default Booking;
+export default AdminSideTravelPostDisplay;
