@@ -42,9 +42,7 @@ const ContactUs = () => {
             .then(data => {
                 console.log(data)
                 if (data?.insertedId) {
-                    toast.success('Thank you for your feedback', {
-                        position : "top-center"
-                    })
+                    toast.success('Thank you for your feedback')
                 }
             })
 
