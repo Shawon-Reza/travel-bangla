@@ -1,3 +1,5 @@
+import { motion } from "motion/react"
+
 
 const Header = () => {
     return (

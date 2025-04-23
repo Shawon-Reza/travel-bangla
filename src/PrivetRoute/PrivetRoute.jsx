@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContex } from '../Provider/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
-import LoginRegistration from './../Components/LoginRegistration';
-import { div } from 'framer-motion/client';
+
 
 const PrivateRoute = ({ children }) => {
     const { loginUser, userLoading } = useContext(AuthContex);

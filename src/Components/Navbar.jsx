@@ -4,6 +4,8 @@ import 'animate.css';
 import { AuthContex } from '../Provider/AuthProvider';
 import { TiDeleteOutline } from "react-icons/ti";
 import { PiSignOutBold } from "react-icons/pi";
+import { motion } from "motion/react"
+
 
 const Navbar = () => {
     const { loginUser, logout } = useContext(AuthContex);
@@ -46,7 +48,7 @@ const Navbar = () => {
             <li><NavLink to="/contactus">Contact us</NavLink></li>
             <li>
                 <NavLink to="/loginregistration">
-                     <button>Login</button>
+                    <button>Login</button>
                 </NavLink>
             </li>
             <li><NavLink to="/admin">Admin</NavLink></li>
@@ -70,9 +72,23 @@ const Navbar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <Link to="/" className="btn btn-ghost text-3xl animate__animated animate__flipInX font-Playfair">
-                        <img src="https://i.ibb.co.com/rf5DNrTZ/Add-a-heading.gif" alt="Logo" className="w-60" />
-                    </Link>
+                    <motion.div
+                        // initial={{scale:0}}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{scale:.8}}
+                        transition={{
+                            duration: 3,
+                            repeat: Infinity
+                        }}
+                        animate={{
+                            rotate: [2, -2, 2]
+
+                        }}
+                    >
+                        <Link to="/" className="btn btn-ghost text-3xl font-Playfair">
+                            <img src="https://i.ibb.co.com/rf5DNrTZ/Add-a-heading.gif" alt="Logo" className="w-60" />
+                        </Link>
+                    </motion.div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">{menuItems}</ul>
@@ -97,10 +113,10 @@ const Navbar = () => {
                 ></div>
             )}
 
-            {/* Sidebar (User Profile Slider) */}
+            {/* Sidebar (User Profile Slider)........... */}
             <div
                 ref={sidebarRef}
-                className={`fixed top-0 right-0 z-[999] shadow-2xl h-full w-64 bg-[#2d7c7c] rounded-tl-2xl border-1 p-5 transition-transform duration-700
+                className={`fixed top-0 right-0 z-[999] shadow-2xl h-full w-64 bg-[rgb(24,118,118)] rounded-tl-2xl border-1 p-5 transition-transform duration-700
                 ${openSlider ? 'translate-x-0' : 'translate-x-full'}`}
             >
                 <div className="flex gap-5 items-center">
@@ -127,7 +143,7 @@ const Navbar = () => {
                 </div>
 
                 <hr
-                className='mt-3'
+                    className='mt-3'
                 />
 
 
