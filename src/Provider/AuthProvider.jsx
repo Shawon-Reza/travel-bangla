@@ -1,6 +1,8 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import { auth } from '../Firebase/firebase.init';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const AuthContex = createContext(null);
 
@@ -36,6 +38,7 @@ const AuthProvider = ({ children }) => {
             .then(() => {
                 console.log("User logged out");
                 setLoginUser(null);
+                alert('Logged out')
             })
             .catch((error) => {
                 console.log("Error on logout:", error.message);
@@ -48,6 +51,14 @@ const AuthProvider = ({ children }) => {
                 console.log("User signed in:", user);
                 setLoginUser(user);
                 setUserLoading(false)
+                // Store USer data on mongodb
+                axios.post('http://localhost:5000/userdetails', user)
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             } else {
                 console.log("No user signed in");
                 setLoginUser(null);

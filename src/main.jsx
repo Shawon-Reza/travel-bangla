@@ -23,6 +23,8 @@ import AdminTravelPostForm from './Components/AdminTravelPostForm.jsx';
 import AdminSideTravelPostDisplay from './Components/AdminSideTravelPostDisplay.jsx';
 import Review from './Components/Review.jsx';
 import AdminTravelPostDetails from './Components/AdminTravelPostDetails.jsx';
+import UserProfile from './UserProfile/UserProfile.jsx';
+import UnderConstraction from './Components/UnderConstraction.jsx';
 
 const router = createBrowserRouter([
   {
@@ -64,6 +66,10 @@ const router = createBrowserRouter([
     loader: ({ params }) => fetch(`http://localhost:5000/travelpostdetails/${params._id}`)
 
   },
+  {
+    path: '/userProfile',
+    element: <PrivetRoute><UserProfile></UserProfile></PrivetRoute>
+  },
 
   {
     path: "/admincontrol",
@@ -85,7 +91,13 @@ const router = createBrowserRouter([
         loader: () => fetch('http://localhost:5000/admin/reviews')
       },
     ]
+  },
+  {
+    path: '*',
+    element: <UnderConstraction></UnderConstraction>
   }
+
+
 
 
 

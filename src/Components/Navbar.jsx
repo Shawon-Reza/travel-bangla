@@ -75,10 +75,11 @@ const Navbar = () => {
                     <motion.div
                         // initial={{scale:0}}
                         whileHover={{ scale: 1.05 }}
-                        whileTap={{scale:.8}}
+                        whileTap={{ scale: .8 }}
                         transition={{
                             duration: 3,
                             repeat: Infinity
+
                         }}
                         animate={{
                             rotate: [2, -2, 2]
@@ -113,7 +114,7 @@ const Navbar = () => {
                 ></div>
             )}
 
-            {/* Sidebar (User Profile Slider)........... */}
+            {/* Sidebar (User Profile Slider).................. */}
             <div
                 ref={sidebarRef}
                 className={`fixed top-0 right-0 z-[999] shadow-2xl h-full w-64 bg-[rgb(24,118,118)] rounded-tl-2xl border-1 p-5 transition-transform duration-700
@@ -139,14 +140,16 @@ const Navbar = () => {
                 <hr className="my-3 border-white" />
 
                 <div className='pl-4 font-semibold cursor-pointer '>
-                    <p>Profile</p>
+                    <Link to={'/userProfile'}>
+                        <p>Profile</p>
+                    </Link>
                 </div>
 
                 <hr
                     className='mt-3'
                 />
 
-
+                {/* Nav Items Show on slider.... */}
                 <div>
                     <ul className="menu menu-sm dropdown-content mt-3 z-1 p-2  rounded-box bg-[#00999] w-full">
                         {menuItems}

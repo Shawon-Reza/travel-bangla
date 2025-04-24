@@ -1,5 +1,5 @@
+import { easeInOut } from "motion";
 import { motion } from "motion/react"
-
 
 const Header = () => {
     return (
@@ -7,7 +7,22 @@ const Header = () => {
 
             {/* Text container part 1 */}
             <div className="px-5">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-Dancing text-yellow-500 ">Explore Your Travel</h2>
+                <motion.h2
+                    className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-Dancing text-yellow-500 "
+                    animate={{
+                        x: [0, 100, 0],
+                        scale: [1.09, 1.11, 1.15],
+                        rotate: [-2, 2, -2],
+                    }}
+                    transition={{
+
+                        duration: 10,
+                        // times: [2, 0, 5],
+                        repeat: Infinity,
+                        ease: easeInOut
+                    }}
+                   
+                >Explore Your Travel</motion.h2>
 
                 <h2 className="text-3xl md:text-5xl lg:text-7xl  xl:text-8xl font-Playfair font-extrabold py-2 md:py-5 lg:py-10">Trusted Travel Agency</h2>
 
@@ -44,7 +59,7 @@ const Header = () => {
 
 
             <div>
-                
+
             </div>
         </div>
     );
