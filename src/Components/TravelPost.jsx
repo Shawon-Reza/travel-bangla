@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { AuthContex } from '../Provider/AuthProvider';
 
 const TravelPost = () => {
     const [error, setError] = useState(null); // To handle errors
+    const { loginUser } = useContext(AuthContex)
+    console.log(loginUser.email);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -41,6 +44,7 @@ const TravelPost = () => {
 
                 },
             },
+            postOwner: loginUser?.email,
             joining_requirements: data.joining_requirements, // Joining requirements
             expirySeconds: data.expiry_seconds, // Expiry time in seconds
         };

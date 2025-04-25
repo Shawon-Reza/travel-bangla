@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 
 import {
   createBrowserRouter,
@@ -13,8 +12,7 @@ import ContactUs from './Components/ContactUs.jsx';
 import LoginRegistration from './Components/LoginRegistration';
 import TravelPost from './Components/TravelPost.jsx';
 import ConnectWithOthers from './Layout/ConnectWithOthers.jsx';
-import { path } from 'framer-motion/client';
-import { element } from 'three/tsl';
+
 import Admin from './Layout/Admin.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import PrivetRoute from './PrivetRoute/PrivetRoute.jsx';
@@ -25,6 +23,14 @@ import Review from './Components/Review.jsx';
 import AdminTravelPostDetails from './Components/AdminTravelPostDetails.jsx';
 import UserProfile from './UserProfile/UserProfile.jsx';
 import UnderConstraction from './Components/UnderConstraction.jsx';
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+import UserOwnPostDisplay from './UserProfile/UserOwnPostDisplay.jsx';
 
 const router = createBrowserRouter([
   {
@@ -68,7 +74,21 @@ const router = createBrowserRouter([
   },
   {
     path: '/userProfile',
-    element: <PrivetRoute><UserProfile></UserProfile></PrivetRoute>
+    element: <PrivetRoute><UserProfile></UserProfile></PrivetRoute>,
+    children:[
+      {
+        path:'',
+        element: <UserOwnPostDisplay></UserOwnPostDisplay>
+      },
+      {
+        path:'post2',
+        element: <UnderConstraction></UnderConstraction>
+      },
+      {
+        path:'post3',
+        element: <UnderConstraction></UnderConstraction>
+      }
+    ]
   },
 
   {
@@ -103,10 +123,15 @@ const router = createBrowserRouter([
 
 ]);
 
+const queryClient = new QueryClient()
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+
     </AuthProvider>
   </StrictMode>,
 )

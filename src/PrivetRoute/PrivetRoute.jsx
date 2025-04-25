@@ -18,8 +18,6 @@ const PrivateRoute = ({ children }) => {
                 </div>
             </div>
         )
-
-
     }
 
     if (loginUser) {
