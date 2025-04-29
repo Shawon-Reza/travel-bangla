@@ -7,6 +7,7 @@ import 'animate.css';
 import { AuthContex } from "../Provider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const LoginRegistration = () => {
     const emailRefSignIn = useRef();

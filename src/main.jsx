@@ -45,7 +45,7 @@ const router = createBrowserRouter([
   {
     path: '/booking',
     element: <Booking />,
-    loader: () => fetch('http://localhost:5000/admin/travelposts')
+    loader: () => fetch('http://localhost:5000/admin/travelposts').catch(error => console.log('Error on Fetching Booking details',error))
   }
 
   ,
@@ -75,17 +75,17 @@ const router = createBrowserRouter([
   {
     path: '/userProfile',
     element: <PrivetRoute><UserProfile></UserProfile></PrivetRoute>,
-    children:[
+    children: [
       {
-        path:'',
+        path: '',
         element: <UserOwnPostDisplay></UserOwnPostDisplay>
       },
       {
-        path:'post2',
+        path: 'post2',
         element: <UnderConstraction></UnderConstraction>
       },
       {
-        path:'post3',
+        path: 'post3',
         element: <UnderConstraction></UnderConstraction>
       }
     ]

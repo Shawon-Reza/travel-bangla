@@ -51,18 +51,43 @@ const AuthProvider = ({ children }) => {
                 console.log("User signed in:", user);
                 setLoginUser(user);
                 setUserLoading(false)
+
                 // Store USer data on mongodb
                 axios.post('http://localhost:5000/userdetails', user)
                     .then(function (response) {
-                        console.log(response);
+                        console.log(response.data);
                     })
                     .catch(function (error) {
                         console.log(error);
                     });
-            } else {
+
+                // JWT token
+                axios.post('http://localhost:5000/jwt', {
+                    email: user?.email
+                },
+                    {
+                        withCredentials: true
+                    }
+                )
+                    .then(res => console.log(res.data))
+                    .catch(err => {
+                        console.log('Error on token request from client side:', err);
+                    })
+            }
+
+            else {
                 console.log("No user signed in");
                 setLoginUser(null);
                 setUserLoading(false)
+                //    Cleare jwt token request
+                axios.post('http://localhost:5000/logout',{}, {
+                    withCredentials: true
+                })
+                    .then(res => res.data)
+                    .catch(err => {
+                        console.log('Error on clear token request from client side: ', err);
+                    })
+
 
             }
         });

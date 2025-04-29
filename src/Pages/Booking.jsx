@@ -6,7 +6,7 @@ import AdminTravelPostDisplay from "../Components/AdminTravelPostDisplay";
 const Booking = () => {
 
     const adminTravelPosts = useLoaderData();
-    console.log(adminTravelPosts);
+    // console.log(adminTravelPosts);
     return (
         <div>
             <div>
@@ -15,10 +15,13 @@ const Booking = () => {
 
             <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 container mx-auto px-5">
                 {
-                    adminTravelPosts.map((posts, idx) => <AdminTravelPostDisplay
-                        key={idx}
-                        posts={posts}>
-                    </AdminTravelPostDisplay>)
+                    adminTravelPosts?.length > 0 ? (
+                        adminTravelPosts.map((posts) => (
+                            <AdminTravelPostDisplay key={posts._id} posts={posts} />
+                        ))
+                    ) : (
+                        <p>No travel posts available or Failed to fetch</p>
+                    )
                 }
             </div>
 

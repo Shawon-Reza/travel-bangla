@@ -6,24 +6,23 @@ import { AuthContex } from '../Provider/AuthProvider';
 import { MdPeopleAlt, MdLocationOn } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { NavLink, Outlet } from 'react-router-dom';
+import Footer from '../Components/Footer';
 
 const UserProfile = () => {
 
     const { loginUser } = useContext(AuthContex);
-    console.log(loginUser.email);
 
     const { isPending, isError, data, error } = useQuery({
         queryKey: ['userDetails', loginUser?.email],
         queryFn: async () => {
             const res = await axios.get('http://localhost:5000/userdetails', {
-                params: { email: loginUser.email }
+                params: { email: loginUser.email },
+                withCredentials: true
             });
             return res.data;
         },
         enabled: !!loginUser?.email, // <-- Only run query when email exists
     });
-
-    console.log(data);
 
     if (isPending) return <p>Loading user data...</p>;
     if (isError) return <p>Error: {error.message}</p>;
@@ -33,7 +32,7 @@ const UserProfile = () => {
             <Navbar />
             <section>
                 <div className='shadow-2xl'>
-                    <div className='w-screen h-[300px] relative'>
+                    <div className='w-screen h-[200px] lg:h-[250px] relative'>
                         <img src={data?.coverUrl || 'https://i.ibb.co.com/1YkRB4rb/Why-I-am-Seeing-Blank-Facebook-Profile-and-How-to-Fix-it.jpg'}
                             alt="User"
                             className='h-full w-full object-cover'
@@ -47,7 +46,7 @@ const UserProfile = () => {
                         </div>
                     </div>
 
-                    <div className='m-10 flex justify-between text-[#19b2b2] px-5'>
+                    <div className='m-5 flex justify-between text-[#19b2b2] sm:px-5 items-center'>
                         <div className='text-center'>
                             <p className='text-2xl font-bold '>{data?.displayName}</p>
                             <p className='mb-5'>{data?.email}</p>
@@ -57,7 +56,7 @@ const UserProfile = () => {
                 </div>
 
                 {/* Second Half...................... */}
-                <div className='grid grid-cols-12 gap-3 px-5'>
+                <div className='grid grid-cols-12 gap-3 px-5 mb-10'>
                     <div className='grid lg:col-span-3 col-span-3 gap-3'>
                         <div className='p-3 shadow-2xl col-span-3 rounded-lg'>
                             <span className='font-semibold block py-3 text-lg sha'>About</span>
@@ -90,7 +89,7 @@ const UserProfile = () => {
                                         : 'btn'
                                 }
                             >
-                                Post
+                                Posts
                             </NavLink>
                             <NavLink
                                 to="post2"
@@ -100,7 +99,7 @@ const UserProfile = () => {
                                         : 'btn'
                                 }
                             >
-                                Post2
+                                Reviews
                             </NavLink>
                             <NavLink
                                 to="post3"
@@ -124,6 +123,7 @@ const UserProfile = () => {
                     </div>
                 </div>
             </section>
+            <Footer></Footer>
         </div>
     );
 };

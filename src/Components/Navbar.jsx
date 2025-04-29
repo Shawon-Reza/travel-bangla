@@ -41,18 +41,84 @@ const Navbar = () => {
 
     const menuItems = (
         <>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="">Tourism stops</NavLink></li>
-            <li><NavLink to="/booking">Book tours</NavLink></li>
-            <li><NavLink to="/connectWithOthers">Travel Post</NavLink></li>
-            <li><NavLink to="/contactus">Contact us</NavLink></li>
-            <li>
-                <NavLink to="/loginregistration">
-                    <button>Login</button>
-                </NavLink>
-            </li>
-            <li><NavLink to="/admin">Admin</NavLink></li>
-        </>
+        <li>
+            <NavLink to="/"
+                className={({ isActive }) =>
+                    isActive
+                        ? 'btn btn-active text-white bg-[#19b2b2]'
+                        : ''
+                }>
+                Home
+            </NavLink>
+        </li>
+    
+        <li>
+            <NavLink to="/tourismstops"
+                className={({ isActive }) =>
+                    isActive
+                        ? 'btn btn-active text-white bg-[#19b2b2]'
+                        : ''
+                }>
+                Tourism stops
+            </NavLink>
+        </li>
+    
+        <li>
+            <NavLink to="/booking"
+                className={({ isActive }) =>
+                    isActive
+                        ? 'btn btn-active text-white bg-[#19b2b2]'
+                        : ''
+                }>
+                Book tours
+            </NavLink>
+        </li>
+    
+        <li>
+            <NavLink to="/connectWithOthers"
+                className={({ isActive }) =>
+                    isActive
+                        ? 'btn btn-active text-white bg-[#19b2b2]'
+                        : ''
+                }>
+                Travel Post
+            </NavLink>
+        </li>
+    
+        <li>
+            <NavLink to="/contactus"
+                className={({ isActive }) =>
+                    isActive
+                        ? 'btn btn-active text-white bg-[#19b2b2]'
+                        : ''
+                }>
+                Contact us
+            </NavLink>
+        </li>
+    
+        <li>
+            <NavLink to="/loginregistration"
+                className={({ isActive }) =>
+                    isActive
+                        ? 'btn btn-active text-white bg-[#19b2b2]'
+                        : ''
+                }>
+                Login
+            </NavLink>
+        </li>
+    
+        <li>
+            <NavLink to="/admin"
+                className={({ isActive }) =>
+                    isActive
+                        ? 'btn btn-active text-white bg-[#19b2b2]'
+                        : ''
+                }>
+                Admin
+            </NavLink>
+        </li>
+    </>
+    
     );
 
     return (
