@@ -3,7 +3,7 @@ import { CiTimer } from 'react-icons/ci';
 import { IoIosTimer } from 'react-icons/io';
 
 const FindFriendPostDisplay = ({ travelpost }) => {
-    console.log(travelpost);
+    // console.log(travelpost);
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const handleSlide = (direction) => {

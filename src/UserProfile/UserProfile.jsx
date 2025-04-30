@@ -25,7 +25,7 @@ const UserProfile = () => {
     });
 
     if (isPending) return <p>Loading user data...</p>;
-    if (isError) return <p>Error: {error.message}</p>;
+    // if (isError) return <p>Error on USerProfile: {error.message}</p>;
 
     return (
         <div>

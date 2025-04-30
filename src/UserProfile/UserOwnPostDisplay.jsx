@@ -2,18 +2,20 @@ import React, { useContext } from 'react';
 import { AuthContex } from '../Provider/AuthProvider';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const UserOwnPostDisplay = () => {
     const { loginUser } = useContext(AuthContex);
+    const axiosSecure = useAxiosSecure();
 
     const { isPending, isError, data, error } = useQuery({
         queryKey: ['todos'],
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/userOwnPost', {
+            const res = await axiosSecure.get('/userOwnPost', {
                 params: {
                     email: loginUser.email
                 },
-                withCredentials: true
+                // withCredentials: true
             });
             return res.data;
         },

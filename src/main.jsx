@@ -39,13 +39,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/connectWithOthers",
-    element: <ConnectWithOthers></ConnectWithOthers>
+    element: <ConnectWithOthers></ConnectWithOthers>,
+    loader: () => fetch('http://localhost:5000/travelPostscount').catch(error=>console.log("Error on travel post count :",error))
 
   },
   {
     path: '/booking',
     element: <Booking />,
-    loader: () => fetch('http://localhost:5000/admin/travelposts').catch(error => console.log('Error on Fetching Booking details',error))
+    loader: () => fetch('http://localhost:5000/admin/travelposts').catch(error => console.log('Error on Fetching Booking details', error))
   }
 
   ,

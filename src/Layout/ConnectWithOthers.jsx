@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 // import FindFriend from '../Pages/FindFriend';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLoaderData } from 'react-router-dom';
 import TravelPost from './../Components/TravelPost';
 import FindFriendPostDisplay from '../Components/FindFriendPostDisplay';
 import { useEffect, useState } from 'react';
@@ -14,8 +14,18 @@ const ConnectWithOthers = () => {
     const [searchData, setSearchData] = useState(null)
     console.log(searchData);
 
+    // Pagination ....................
+    const totalcount = useLoaderData();
+    const [itemsPerPage, setItemPerPage] = useState(6);
+    const [currentPage, setCurrentPage] = useState(0);
+    const pageNumbers = Math.ceil(totalcount / itemsPerPage)
+    const pages = [...Array(pageNumbers).keys()]
+
+    console.log("Total count :", totalcount, pageNumbers, pages);
+
+
     useEffect(() => {
-        fetch('http://localhost:5000/travelPosts')
+        fetch(`http://localhost:5000/travelPosts?page=${currentPage}&limit=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => {
                 console.log("Fetched data:", data);
@@ -24,7 +34,8 @@ const ConnectWithOthers = () => {
             .catch(error => {
                 console.error("Error fetching travel posts:", error);
             });
-    }, []);
+    }, [itemsPerPage, currentPage]);
+
     console.log("Travel details: ", typeof travelPostDetails);
     console.log("Travel details: ", travelPostDetails);
 
@@ -91,6 +102,49 @@ const ConnectWithOthers = () => {
                         }
                     </div>
                 </div>
+
+                <div className='text-center my-10'>Cureent page:{currentPage} </div>
+                <div className='flex justify-center'>
+                    <button className='btn'
+                        onClick={() => {
+                            if (currentPage > 0) {
+                                setCurrentPage(currentPage - 1)
+                            }
+                        }}
+                    >Prev</button>
+
+                    {
+                        pages.map((page, idx) =>
+
+                            <button
+                                key={idx}
+                                className={`btn ${currentPage == page ? 'bg-green-600' : ''}`}
+                                onClick={() => {
+                                    setCurrentPage(page)
+                                }}
+                            >{page}</button>)
+                    }
+                    <button className='btn'
+                        onClick={() => {
+                            if (currentPage < pages.length - 1) {
+                                setCurrentPage(currentPage + 1)
+                            }
+                        }}
+                    >Next</button>
+
+                    <select name="" value={itemsPerPage} id="" className='btn'
+                        onChange={(e) => {
+                            setItemPerPage(parseInt(e.target.value))
+                            setCurrentPage(0)
+                        }}
+                    >
+                        <option value={6}>6</option>
+                        <option value={8}>8</option>
+                        <option value={10}>10</option>
+                    </select>
+                </div>
+
+
             </div>
 
             <div className='mt-10'>
