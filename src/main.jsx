@@ -31,6 +31,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import UserOwnPostDisplay from './UserProfile/UserOwnPostDisplay.jsx';
+import UserTravelPostOnAdminSide from './Admin/UserTravelPostOnAdminSide.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
   {
     path: "/connectWithOthers",
     element: <ConnectWithOthers></ConnectWithOthers>,
-    loader: () => fetch('http://localhost:5000/travelPostscount').catch(error=>console.log("Error on travel post count :",error))
+    loader: () => fetch('http://localhost:5000/travelPostscount').catch(error => console.log("Error on travel post count :", error))
 
   },
   {
@@ -98,14 +99,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <AdminTravelPostForm></AdminTravelPostForm>
-      },
-      {
-        path: 'adminsidetravelpost',
         element: <AdminSideTravelPostDisplay></AdminSideTravelPostDisplay>,
         loader: () => fetch('http://localhost:5000/admin/travelposts')
 
       },
+      {
+        path: 'admintravelpost',
+        element: <AdminTravelPostForm></AdminTravelPostForm>
+      },
+      {
+        path: 'usertravelpost',
+        element: <UserTravelPostOnAdminSide></UserTravelPostOnAdminSide>
+      },
+
       {
         path: "reviews",
         element: <Review></Review>,

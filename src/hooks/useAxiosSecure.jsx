@@ -9,6 +9,7 @@ const axiosInstance = axios.create({
 
 const useAxiosSecure = () => {
     useEffect(() => {
+        
         const interceptor = axiosInstance.interceptors.response.use(
             response => {
                 console.log('Axios success:', response);
