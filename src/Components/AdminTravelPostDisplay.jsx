@@ -4,7 +4,7 @@ import { IoIosTimer } from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
 const AdminpostsDisplay = ({ posts }) => {
 
-    console.log(posts);
+    // console.log(posts);
 
     const [currentSlide, setCurrentSlide] = useState(0);
 
