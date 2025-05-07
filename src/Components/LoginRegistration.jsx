@@ -166,11 +166,13 @@ const LoginRegistration = () => {
                                     ref={emailRefSignIn}
                                     type="email"
                                     placeholder="Email"
+                                    id="email"
                                     className="w-full px-5 py-2 border rounded-lg mb-3"
                                 />
                                 <input
                                     ref={passwordRefSignIn}
                                     type="password"
+                                    id="password"
                                     placeholder="Password"
                                     className="w-full px-4 py-2 border rounded-lg mb-3"
                                 />
@@ -188,6 +190,7 @@ const LoginRegistration = () => {
 
                                 <button
                                     type="submit"
+                                    id="button"
                                     className="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition"
                                 >
                                     SIGN IN
