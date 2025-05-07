@@ -34,6 +34,7 @@ import UserOwnPostDisplay from './UserProfile/UserOwnPostDisplay.jsx';
 import UserTravelPostOnAdminSide from './Admin/UserTravelPostOnAdminSide.jsx';
 import BookedList from './Admin/BookedList.jsx';
 import BookedTour from './UserProfile/BookedTour.jsx';
+import FavoriteListDisplay from './UserProfile/FavoriteListDisplay.jsx';
 
 const router = createBrowserRouter([
   {
@@ -89,8 +90,8 @@ const router = createBrowserRouter([
         element: <BookedTour></BookedTour>
       },
       {
-        path: 'post3',
-        element: <UnderConstraction></UnderConstraction>
+        path: 'favorite',
+        element: <FavoriteListDisplay></FavoriteListDisplay>
       }
     ]
   },

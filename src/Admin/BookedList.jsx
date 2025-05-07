@@ -5,7 +5,7 @@ const BookedList = () => {
         <div>
             <h1>Boked list...............</h1>
             <div>
-                <h3>Total Booked:</h3>
+                <h3>Total Booked: </h3>
             </div>
         </div>
     );

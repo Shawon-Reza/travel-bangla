@@ -147,8 +147,8 @@ const UserProfile = () => {
                                 Booked
                             </NavLink>
 
-                            <NavLink to="post3" className={({ isActive }) => isActive ? 'btn btn-active text-white bg-[#19b2b2]' : 'btn'}>
-                            Reviews
+                            <NavLink to="favorite" className={({ isActive }) => isActive ? 'btn btn-active text-white bg-[#19b2b2]' : 'btn'}>
+                            Favorite
                             </NavLink>
                         </div>
                         <div className='px-3'>

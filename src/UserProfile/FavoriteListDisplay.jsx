@@ -1,40 +1,22 @@
-import React, { useContext } from 'react';
-import { AuthContex } from '../Provider/AuthProvider';
 import axios from 'axios';
-import { useQuery } from '@tanstack/react-query';
-import useAxiosSecure from '../hooks/useAxiosSecure';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContex } from '../Provider/AuthProvider';
 
-const UserOwnPostDisplay = () => {
-    const { loginUser } = useContext(AuthContex);
-    const axiosSecure = useAxiosSecure();
+const FavoriteListDisplay = () => {
+    const { loginUser } = useContext(AuthContex)
+    console.log(loginUser);
 
-    const { isPending, isError, data, error } = useQuery({
-        queryKey: ['todos'],
-        queryFn: async () => {
-            const res = await axiosSecure.get('/userOwnPost', {
-                params: {
-                    email: loginUser.email
-                },
-                // withCredentials: true
-            });
-            return res.data;
-        },
-    });
+    const [data, setData] = useState([])
 
+    useEffect(() => {
+        axios.get(`http://localhost:5000/favoritelist?email=${loginUser?.email}`)
+            .then(res => setData(res.data))
+            .catch(err => {
+                console.log(err);
+            })
+    }, [])
 
-    if (isPending) {
-        return ("Data is loading");
-    }
-
-    // Make sure data is an array before using map
-    if (isError || !Array.isArray(data)) {
-        return (
-            <div>
-                <p>Error loading posts or invalid data format</p>
-            </div>
-        );
-    }
-
+    console.log(data);
     return (
         <div>
             {data?.map((details) => (
@@ -43,7 +25,7 @@ const UserOwnPostDisplay = () => {
                         <tbody>
                             {/* row 1 */}
                             <tr>
-                               
+                                
                                 <td>
                                     <div className="flex items-center gap-3">
                                         <div className="avatar">
@@ -76,4 +58,4 @@ const UserOwnPostDisplay = () => {
     );
 };
 
-export default UserOwnPostDisplay;
+export default FavoriteListDisplay;
