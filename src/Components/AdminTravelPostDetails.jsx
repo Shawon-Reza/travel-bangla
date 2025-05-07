@@ -1,17 +1,43 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContex } from '../Provider/AuthProvider';
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
 
 const AdminTravelPostDetails = () => {
     const data = useLoaderData();
     console.log(data);
 
+    const { loginUser } = useContext(AuthContex)
+    console.log(loginUser);
+
+    const handleBooked = () => {
+        console.log(data?._id);
+        console.log(loginUser?.uid);
+        const bookedInfo = {
+            postId: data?._id,
+            userId: loginUser?.uid
+        }
+
+        axios.post('http://localhost:5000/admin/travelposts/Booked', bookedInfo)
+            .then(res => console.log(res.data))
+            .catch(err => {
+                if (err.response && err.response.status === 400) {
+                    // alert(err.response.data.message); // Show "Already booked"
+                    toast.warning(`${err.response.data.message}`)
+                } else {
+                    alert("Something went wrong. Please try again.");
+                }
+            });
+    }
     return (
         <div>
+            <ToastContainer></ToastContainer>
             <Navbar />
             <div className="max-w-4xl mx-auto p-5 mt-t">
-                <div className="card shadow-lg rounded-xl overflow-hidden bg-white">
+                <div className="card shadow-lg  rounded-2xl  rounded-b-none overflow-hidden bg-white">
                     {/* Card Header: Destination */}
                     <div className="bg-blue-500 text-white text-center p-5">
                         <h2 className="text-3xl font-bold">{data.destination}</h2>
@@ -81,6 +107,14 @@ const AdminTravelPostDetails = () => {
                         </div>
                     </div>
                 </div>
+
+                <div className="flex justify-center items-center w-full">
+                    <button
+                        className="btn btn-accent w-full rounded-t-none font-bold text-white text-xl"
+                        onClick={handleBooked}
+                    >Booked</button>
+                </div>
+
             </div>
             <Footer />
         </div>

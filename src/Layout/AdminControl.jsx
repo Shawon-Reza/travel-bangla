@@ -37,6 +37,17 @@ const AdminControl = () => {
                     </NavLink>
 
                     <NavLink
+                        to="bookedlist"
+                        className={({ isActive }) =>
+                            `btn btn-outline btn-accent w-full font-semibold rounded-lg py-2 transition duration-200 ${isActive ? 'bg-[#009999] text-black ' : ''
+                            }`
+                        }
+                    >
+                        Booked List
+                    </NavLink>
+
+
+                    <NavLink
                         to="usertravelpost"
                         className={({ isActive }) =>
                             `btn btn-outline btn-accent w-full font-semibold rounded-lg py-2 transition duration-200 ${isActive ? 'bg-[#009999] text-black ' : ''

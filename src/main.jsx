@@ -32,6 +32,7 @@ import {
 } from '@tanstack/react-query'
 import UserOwnPostDisplay from './UserProfile/UserOwnPostDisplay.jsx';
 import UserTravelPostOnAdminSide from './Admin/UserTravelPostOnAdminSide.jsx';
+import BookedList from './Admin/BookedList.jsx';
 
 const router = createBrowserRouter([
   {
@@ -70,7 +71,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/travelpostdetails/:_id",
-    element: <AdminTravelPostDetails></AdminTravelPostDetails>,
+    element: <PrivetRoute><AdminTravelPostDetails></AdminTravelPostDetails></PrivetRoute>,
     loader: ({ params }) => fetch(`http://localhost:5000/travelpostdetails/${params._id}`)
 
   },
@@ -116,6 +117,10 @@ const router = createBrowserRouter([
         path: "reviews",
         element: <Review></Review>,
         loader: () => fetch('http://localhost:5000/admin/reviews')
+      },
+      {
+        path: "bookedlist",
+        element: <BookedList></BookedList>,
       },
     ]
   },
