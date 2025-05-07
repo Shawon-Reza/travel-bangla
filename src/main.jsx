@@ -33,6 +33,7 @@ import {
 import UserOwnPostDisplay from './UserProfile/UserOwnPostDisplay.jsx';
 import UserTravelPostOnAdminSide from './Admin/UserTravelPostOnAdminSide.jsx';
 import BookedList from './Admin/BookedList.jsx';
+import BookedTour from './UserProfile/BookedTour.jsx';
 
 const router = createBrowserRouter([
   {
@@ -84,8 +85,8 @@ const router = createBrowserRouter([
         element: <UserOwnPostDisplay></UserOwnPostDisplay>
       },
       {
-        path: 'post2',
-        element: <UnderConstraction></UnderConstraction>
+        path: 'bookedtour',
+        element: <BookedTour></BookedTour>
       },
       {
         path: 'post3',

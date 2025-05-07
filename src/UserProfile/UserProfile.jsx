@@ -142,11 +142,13 @@ const UserProfile = () => {
                             <NavLink to="" end className={({ isActive }) => isActive ? 'btn btn-active text-white bg-[#19b2b2]' : 'btn'}>
                                 Posts
                             </NavLink>
-                            <NavLink to="post2" className={({ isActive }) => isActive ? 'btn btn-active text-white bg-[#19b2b2]' : 'btn'}>
-                                Reviews
+
+                            <NavLink to="bookedtour" className={({ isActive }) => isActive ? 'btn btn-active text-white bg-[#19b2b2]' : 'btn'}>
+                                Booked
                             </NavLink>
+
                             <NavLink to="post3" className={({ isActive }) => isActive ? 'btn btn-active text-white bg-[#19b2b2]' : 'btn'}>
-                                Post3
+                            Reviews
                             </NavLink>
                         </div>
                         <div className='px-3'>

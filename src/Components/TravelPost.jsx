@@ -34,16 +34,6 @@ const TravelPost = () => {
                 details: data.transportation_details,
             },
             activities: data.activities.split(','), // Split activities by comma
-            host: {
-                name: data.host_name,
-                contact: {
-                    email: data.host_contact,
-                    phone: data.host_phone,
-                    facebook: data.host_facebook || '',  // Facebook is optional
-                    whatsapp: data.host_whatsapp || '',
-
-                },
-            },
             postOwner: loginUser?.email,
             joining_requirements: data.joining_requirements, // Joining requirements
             expirySeconds: data.expiry_seconds, // Expiry time in seconds
@@ -114,6 +104,12 @@ const TravelPost = () => {
                             <label className="block mb-2">Total trip days:</label>
                             <input type="number" name="totalTripdays" className="w-full p-2 border rounded mb-3" required />
 
+
+
+
+                        </div>
+
+                        <div>
                             <label className="block mb-2">Destination Images (comma separated URLs):</label>
                             <textarea
                                 name="destination_images"
@@ -123,11 +119,6 @@ const TravelPost = () => {
                                 required
                             ></textarea>
 
-
-
-                        </div>
-
-                        <div>
                             <label className="block mb-2">Start Date:</label>
                             <input type="date" name="start_date" className="w-full p-2 border rounded mb-3" required />
 
@@ -140,33 +131,21 @@ const TravelPost = () => {
                             <label className="block mb-2">Transportation Mode:</label>
                             <input type="text" name="transportation_mode" className="w-full p-2 border rounded mb-3" required />
 
-                            <label className="block mb-2">Transportation Details:</label>
-                            <input type="text" name="transportation_details" className="w-full p-2 border rounded mb-3" required />
 
-                            <label className="block mb-2">Activities (comma separated):</label>
-                            <input type="text" name="activities" className="w-full p-2 border rounded mb-3" placeholder="snorkeling, hiking, beach parties" required />
 
-                            <label className="block mb-2">Host Name:</label>
-                            <input type="text" name="host_name" className="w-full p-2 border rounded mb-3" required />
+
+
 
 
                         </div>
 
 
                         <div>
+                            <label className="block mb-2">Transportation Details:</label>
+                            <input type="text" name="transportation_details" className="w-full p-2 border rounded mb-3" required />
 
-                            <label className="block mb-2">Host Contact (Email):</label>
-                            <input type="email" name="host_contact" className="w-full p-2 border rounded mb-3" required />
-
-                            <label className="block mb-2">Phone Number:</label>
-                            <input type="tel" name="host_phone" className="w-full p-2 border rounded mb-3" required />
-
-                            <label className="block mb-2">Facebook Link:</label>
-                            <input type="url" name="host_facebook" className="w-full p-2 border rounded mb-3" />
-
-                            <label className="block mb-2">WhatsApp Link:</label>
-                            <input type="url" name="host_whatsapp" className="w-full p-2 border rounded mb-3" />
-
+                            <label className="block mb-2">Activities (comma separated):</label>
+                            <input type="text" name="activities" className="w-full p-2 border rounded mb-3" placeholder="snorkeling, hiking, beach parties" required />
 
                             <label className="block mb-2">Joining Requirements:</label>
                             <textarea name="joining_requirements" className="w-full p-2 border rounded mb-3" required />
