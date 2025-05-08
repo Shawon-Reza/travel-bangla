@@ -35,11 +35,12 @@ import UserTravelPostOnAdminSide from './Admin/UserTravelPostOnAdminSide.jsx';
 import BookedList from './Admin/BookedList.jsx';
 import BookedTour from './UserProfile/BookedTour.jsx';
 import FavoriteListDisplay from './UserProfile/FavoriteListDisplay.jsx';
+import Home from './Components/extra/home.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeLayout></HomeLayout>,
+    element: <Home></Home>,
   },
   {
     path: "/connectWithOthers",

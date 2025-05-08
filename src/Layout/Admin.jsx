@@ -4,9 +4,11 @@ import Footer from '../Components/Footer';
 import AdminLeftSide from '../Components/AdminLeftSide';
 import TravelPost from '../Components/TravelPost';
 import { useNavigate } from 'react-router-dom';
+import Lottie from 'lottie-react';
+import carRunning from '../assets/lottie/CarRuning.json'
 
 const Admin = () => {
-const navigate= useNavigate();
+    const navigate = useNavigate();
 
     const handleAdminLogin = async (e) => {
         e.preventDefault();
@@ -44,8 +46,15 @@ const navigate= useNavigate();
                 <Navbar></Navbar>
             </div>
 
-            <div>
-                <div className="hero bg-base-200 min-h-screen">
+            <div className="relative overflow-hidden">
+                <Lottie
+                    animationData={carRunning}
+                    loop={true}
+                    className="absolute top-0 left-0 xl:h-[1000px]  min-w-screen object-cover -z-10"
+                />
+
+
+                <div className="hero  min-h-screen">
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <div className="text-center lg:text-left">
                             <h1 className="text-5xl font-bold">Login now!</h1>
@@ -76,7 +85,7 @@ const navigate= useNavigate();
 
 
 
-            <div className='mt-10'>
+            <div className='xl:mt-5'>
                 <Footer></Footer>
             </div>
         </div>

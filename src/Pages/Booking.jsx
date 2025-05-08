@@ -3,6 +3,8 @@ import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import AdminTravelPostDisplay from "../Components/AdminTravelPostDisplay";
 import axios from "axios";
+import Lottie from "lottie-react";
+import DottedLoading from '../assets/lottie/DottedLoading.json'
 
 const Booking = () => {
     const [adminTravelPosts, setAdminTravelPosts] = useState([]);
@@ -24,7 +26,7 @@ const Booking = () => {
     const getPaginationRange = () => {
         let start = Math.max(currentPage - 2, 0); // Start from 2 pages before the current page
         let end = Math.min(start + 4, pages.length - 1); // End at 5 pages or the last page
-        
+
         if (pages.length > 5) {
             // Adjust if there are more than 5 pages to show
             if (currentPage > pages.length - 3) {
@@ -56,7 +58,10 @@ const Booking = () => {
                             <AdminTravelPostDisplay key={posts._id} posts={posts} />
                         ))
                     ) : (
-                        <p>No travel posts available or failed to fetch.</p>
+                        <div className="flex justify-center items-center text-2xl h-screen w-full">
+                        <Lottie animationData={DottedLoading} loop={true} />
+                      </div>
+                      
                     )
                 }
             </div>
