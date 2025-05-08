@@ -19,6 +19,7 @@
     "localforage": "^1.10.0",
     "match-sorter": "^8.0.0",
     "motion": "^12.7.4",
+    "ogl": "^1.0.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
