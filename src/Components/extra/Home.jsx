@@ -1,4 +1,6 @@
 import HomeLayout from '../../Layout/HomeLayout';
+import SecondLayout from '../../Layout/SecondLayout.JSX';
+import ThirdLayout from '../../Layout/ThirdLayout';
 import AnimatedSection from './AnimatedSection';
 import { fadeInLeft, fadeInRight, zoomIn } from './animations';
 
@@ -10,11 +12,11 @@ const Home = () => {
       </AnimatedSection>
 
       <AnimatedSection variants={zoomIn}>
-        <div className="text-3xl">Adventure in the Mountains</div>
+        <SecondLayout></SecondLayout>
       </AnimatedSection>
 
       <AnimatedSection variants={fadeInRight}>
-        <div className="text-2xl">Plan Your Trip Now</div>
+        <ThirdLayout></ThirdLayout>
       </AnimatedSection>
     </div>
   );

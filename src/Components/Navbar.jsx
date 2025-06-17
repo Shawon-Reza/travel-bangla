@@ -5,6 +5,7 @@ import { AuthContex } from '../Provider/AuthProvider';
 import { TiDeleteOutline } from "react-icons/ti";
 import { PiSignOutBold } from "react-icons/pi";
 import { motion } from "motion/react"
+import ContactUs from './ContactUs';
 
 
 const Navbar = () => {
@@ -41,84 +42,92 @@ const Navbar = () => {
 
     const menuItems = (
         <>
-        <li>
-            <NavLink to="/"
-                className={({ isActive }) =>
-                    isActive
-                        ? 'btn btn-active text-white bg-[#19b2b2]'
-                        : ''
-                }>
-                Home
-            </NavLink>
-        </li>
-    
-        <li>
-            <NavLink to="/tourismstops"
-                className={({ isActive }) =>
-                    isActive
-                        ? 'btn btn-active text-white bg-[#19b2b2]'
-                        : ''
-                }>
-                Tourism stops
-            </NavLink>
-        </li>
-    
-        <li>
-            <NavLink to="/booking"
-                className={({ isActive }) =>
-                    isActive
-                        ? 'btn btn-active text-white bg-[#19b2b2]'
-                        : ''
-                }>
-                Book tours
-            </NavLink>
-        </li>
-    
-        <li>
-            <NavLink to="/connectWithOthers"
-                className={({ isActive }) =>
-                    isActive
-                        ? 'btn btn-active text-white bg-[#19b2b2]'
-                        : ''
-                }>
-                Travel Post
-            </NavLink>
-        </li>
-    
-        <li>
-            <NavLink to="/contactus"
-                className={({ isActive }) =>
-                    isActive
-                        ? 'btn btn-active text-white bg-[#19b2b2]'
-                        : ''
-                }>
-                Contact us
-            </NavLink>
-        </li>
-    
-        <li>
-            <NavLink to="/loginregistration"
-                className={({ isActive }) =>
-                    isActive
-                        ? 'btn btn-active text-white bg-[#19b2b2]'
-                        : ''
-                }>
-                Login
-            </NavLink>
-        </li>
-    
-        <li>
-            <NavLink to="/admin"
-                className={({ isActive }) =>
-                    isActive
-                        ? 'btn btn-active text-white bg-[#19b2b2]'
-                        : ''
-                }>
-                Admin
-            </NavLink>
-        </li>
-    </>
-    
+            <li>
+                <NavLink to="/"
+                    id='home'
+                    className={({ isActive }) =>
+                        isActive
+                            ? 'btn btn-active text-white bg-[#19b2b2]'
+                            : ''
+                    }>
+                    Home
+                </NavLink>
+            </li>
+
+            <li>
+                <NavLink to="/tourismstops"
+                    id='tourismspote'
+                    className={({ isActive }) =>
+                        isActive
+                            ? 'btn btn-active text-white bg-[#19b2b2]'
+                            : ''
+                    }>
+                    Tourism stops
+                </NavLink>
+            </li>
+
+            <li>
+                <NavLink to="/booking"
+                    id='bookingtour'
+                    className={({ isActive }) =>
+                        isActive
+                            ? 'btn btn-active text-white bg-[#19b2b2]'
+                            : ''
+                    }>
+                    Book tours
+                </NavLink>
+            </li>
+
+            <li>
+                <NavLink to="/connectWithOthers"
+                    id='travelpost'
+                    className={({ isActive }) =>
+                        isActive
+                            ? 'btn btn-active text-white bg-[#19b2b2]'
+                            : ''
+                    }>
+                    Travel Post
+                </NavLink>
+            </li>
+
+            <li id='contactUs'>
+                <NavLink to="/contactus"
+                    id='contactUs'
+                    className={({ isActive }) =>
+                        isActive
+                            ? 'btn btn-active text-white bg-[#19b2b2]'
+                            : ''
+                    }>
+
+                    Contact us
+                </NavLink>
+            </li>
+
+            <li>
+                <NavLink to="/loginregistration"
+                    id='login'
+                    className={({ isActive }) =>
+                        isActive
+                            ? 'btn btn-active text-white bg-[#19b2b2]'
+                            : ''
+                    }>
+                    Login
+                </NavLink>
+            </li>
+
+            <li>
+                <NavLink to="/admin"
+                    id='admin'
+                    className={({ isActive }) =>
+                        isActive
+                            ? 'btn btn-active text-white bg-[#19b2b2]'
+                            : ''
+                    }>
+                    Admin
+                </NavLink>
+            </li>
+        </>
+
     );
 
     return (
@@ -153,7 +162,7 @@ const Navbar = () => {
                         }}
                     >
                         <Link to="/" className="btn btn-ghost text-3xl font-Playfair">
-                            <img src="https://i.ibb.co.com/rf5DNrTZ/Add-a-heading.gif" alt="Logo" className="w-60" />
+                            <img src="https://i.ibb.co.com/rf5DNrTZ/Add-a-heading.gif" id='homepageicon' alt="Logo" className="w-60" />
                         </Link>
                     </motion.div>
                 </div>
@@ -163,6 +172,7 @@ const Navbar = () => {
                 <div className="navbar-end">
                     <figure>
                         <img
+                            id='img'
                             src={loginUser?.photoURL || "https://i.ibb.co.com/fYPkdG1f/5100711-200.png"}
                             className="w-10 h-10 rounded-full border-2 border-black shadow-2xl cursor-pointer"
                             alt="User photo"
@@ -206,7 +216,8 @@ const Navbar = () => {
                 <hr className="my-3 border-white" />
 
                 <div className='pl-4 font-semibold cursor-pointer '>
-                    <Link to={'/userProfile'}>
+                    <Link to={'/userProfile'}
+                        id='profilepage'>
                         <p>Profile</p>
                     </Link>
                 </div>

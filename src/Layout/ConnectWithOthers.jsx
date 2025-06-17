@@ -7,6 +7,7 @@ import TravelPost from './../Components/TravelPost';
 import FindFriendPostDisplay from '../Components/FindFriendPostDisplay';
 import { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
+import { useQuery } from '@tanstack/react-query';
 
 const ConnectWithOthers = () => {
     const [travelPostDetails, setTravelPostDetails] = useState([])
@@ -24,17 +25,28 @@ const ConnectWithOthers = () => {
     console.log("Total count :", totalcount, pageNumbers, pages);
 
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/travelPosts?page=${currentPage}&limit=${itemsPerPage}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log("Fetched data:", data);
-                setTravelPostDetails(data);
-            })
-            .catch(error => {
-                console.error("Error fetching travel posts:", error);
-            });
-    }, [itemsPerPage, currentPage]);
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/travelPosts?page=${currentPage}&limit=${itemsPerPage}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log("Fetched data:", data);
+    //             setTravelPostDetails(data);
+    //         })
+    //         .catch(error => {
+    //             console.error("Error fetching travel posts:", error);
+    //         });
+    // }, [itemsPerPage, currentPage]);
+
+    const { isPending, error, data } = useQuery({
+        queryKey: ['userPost', itemsPerPage, currentPage],
+        queryFn: () =>
+            fetch(`http://localhost:5000/travelPosts?page=${currentPage}&limit=${itemsPerPage}`)
+                .then((res) =>
+                    res.json(),
+                ),
+    })
+
+
 
     console.log("Travel details: ", typeof travelPostDetails);
     console.log("Travel details: ", travelPostDetails);
@@ -54,10 +66,10 @@ const ConnectWithOthers = () => {
 
             <div className=''>
 
-                <div className=' flex justify-center mt-3 gap-10 mx-auto max-w-screen'>
+                <div className=' flex justify-center mt-3 md:gap-10 gap-2 mx-auto max-w-screen'>
                     {/* Filter bar */}
-                    <NavLink to={'/TravelPost'}>
-                        <button className='ml-15 btn '>Add tour Travel post</button>
+                    <NavLink to={'/TravelPost'} className='btn'>
+                        Post
                     </NavLink>
 
 
@@ -92,19 +104,26 @@ const ConnectWithOthers = () => {
                 <div className=''>
 
                     <div
+                        className=" pt-10 grid gap-5   md:grid-cols-2 xl:grid-cols-3 w-full max-w-screen-xl mx-auto justify-items-center"
+                    >
 
-                        className='pl-5 pt-10 sm:px-15 md:grid gap-5 lg:grid-cols-2 xl:grid-cols-3 md:w-full md:gap- space-x-5 justify-items-center mx-auto space-y-5 md:space-y-0 '>
                         {
-                            travelPostDetails.map((post) => <FindFriendPostDisplay
+                            isPending ? (
+                                Array.from({ length: itemsPerPage }).map((_, i) => (
+                                    <div key={i} className="animate-pulse bg-gray-200 h-72 rounded-xl shadow-sm" />
+                                ))
+                            ) : (data.map((post) => <FindFriendPostDisplay
                                 travelpost={post}
 
-                            ></FindFriendPostDisplay>)
+                            ></FindFriendPostDisplay>))
+
+
                         }
                     </div>
                 </div>
 
-                <div className='text-center my-10'>Cureent page:{currentPage} </div>
-                <div className='flex justify-center'>
+
+                <div className='flex justify-center mt-7'>
                     <button className='btn'
                         onClick={() => {
                             if (currentPage > 0) {
@@ -150,7 +169,7 @@ const ConnectWithOthers = () => {
             <div className='mt-10'>
                 <Footer></Footer>
             </div>
-        </div>
+        </div >
     );
 };
 

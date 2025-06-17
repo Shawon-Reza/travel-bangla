@@ -79,6 +79,12 @@ const router = createBrowserRouter([
 
   },
   {
+    path: "/usertravelpostdetails/:_id",
+    element: <PrivetRoute><AdminTravelPostDetails></AdminTravelPostDetails></PrivetRoute>,
+    loader: ({ params }) => fetch(`http://localhost:5000/usertravelpostdetails/${params._id}`)
+
+  },
+  {
     path: '/userProfile',
     element: <PrivetRoute><UserProfile></UserProfile></PrivetRoute>,
     children: [

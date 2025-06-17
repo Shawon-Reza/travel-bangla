@@ -68,14 +68,18 @@ const Admin = () => {
                             <form className="card-body" onSubmit={handleAdminLogin}>
                                 <fieldset className="fieldset">
                                     <label className="fieldset-label">User name</label>
-                                    <input type="text" className="input" placeholder="User name" name='userName' />
+                                    <input type="text" 
+                                    id='username'
+                                     className="input" placeholder="User name" name='userName' />
 
                                     <label className="fieldset-label">Password</label>
-                                    <input type="password" className="input" placeholder="Password"
+                                    <input type="password" className="input" 
+                                    id='password'
+                                    placeholder="Password"
                                         name='userPassword' />
 
                                     <div><a className="link link-hover">Forgot password?</a></div>
-                                    <button className="btn btn-neutral mt-4">Login</button>
+                                    <button className="btn btn-neutral mt-4" id='button'>Login</button>
                                 </fieldset>
                             </form>
                         </div>

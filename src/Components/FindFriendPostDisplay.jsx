@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CiTimer } from 'react-icons/ci';
 import { IoIosTimer } from 'react-icons/io';
+import { Link, NavLink } from 'react-router-dom';
 
 const FindFriendPostDisplay = ({ travelpost }) => {
     // console.log(travelpost);
@@ -16,7 +17,7 @@ const FindFriendPostDisplay = ({ travelpost }) => {
 
     return (
         <div>
-            <div className="card bg-base-100 shadow-sm relative">
+            <div className="card bg-base-100 shadow-sm relative w-[350px] lg:w-[450px] h-[500px] lg:h-[550px] xl:h-[500px] xl:w-[390px]">
                 {/* Carousel for destination images */}
                 <div className="carousel sm:w-full lg:w-full shadow-xl relative">
                     {travelpost?.destination_images?.length > 0 ? (
@@ -65,7 +66,11 @@ const FindFriendPostDisplay = ({ travelpost }) => {
                             </div>
                         </div>
 
-                        <button className="btn btn-primary">Details</button>
+                        <Link to={`/usertravelpostdetails/${travelpost._id}`} className='btn btn-primary'>
+                            Details
+                        </Link>
+
+                        {/* <button className="btn btn-primary">Details</button> */}
                     </div>
                 </div>
 

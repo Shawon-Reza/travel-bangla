@@ -26,7 +26,7 @@ const HomeLayout = () => {
             {/* <Background /> */}
             <Navbar />
             <Header />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };

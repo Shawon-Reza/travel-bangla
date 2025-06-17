@@ -10,6 +10,8 @@ import Footer from '../Components/Footer';
 import { CiEdit } from "react-icons/ci";
 import { motion } from 'motion/react';
 import Swal from 'sweetalert2';
+import Lottie from 'lottie-react';
+import loading from '../assets/lottie/DottedLoading.json'
 
 const UserProfile = () => {
     const { loginUser } = useContext(AuthContex);
@@ -28,7 +30,14 @@ const UserProfile = () => {
         enabled: !!loginUser?.email,
     });
 
-    if (isPending) return <p>Loading user data...</p>;
+    if (isPending) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <Lottie animationData={loading} loop={true} className="w-screen h-64" />
+            </div>
+        );
+    }
+
 
     return (
         <div>
@@ -139,16 +148,20 @@ const UserProfile = () => {
 
                     <div className='lg:col-span-6 col-span-9 shadow-2xl rounded-lg'>
                         <div className='text-center space-x-2 py-3 shadow-2xl'>
-                            <NavLink to="" end className={({ isActive }) => isActive ? 'btn btn-active text-white bg-[#19b2b2]' : 'btn'}>
+                            <NavLink to="" end id='post' className={({ isActive }) => isActive ? 'btn btn-active text-white bg-[#19b2b2]' : 'btn'}>
                                 Posts
                             </NavLink>
 
-                            <NavLink to="bookedtour" className={({ isActive }) => isActive ? 'btn btn-active text-white bg-[#19b2b2]' : 'btn'}>
+                            <NavLink to="bookedtour"
+                            id='booked'
+                            className={({ isActive }) => isActive ? 'btn btn-active text-white bg-[#19b2b2]' : 'btn'}>
                                 Booked
                             </NavLink>
 
-                            <NavLink to="favorite" className={({ isActive }) => isActive ? 'btn btn-active text-white bg-[#19b2b2]' : 'btn'}>
-                            Favorite
+                            <NavLink to="favorite"
+                            id='favorite'
+                            className={({ isActive }) => isActive ? 'btn btn-active text-white bg-[#19b2b2]' : 'btn'}>
+                                Favorite
                             </NavLink>
                         </div>
                         <div className='px-3'>

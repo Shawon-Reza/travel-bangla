@@ -101,108 +101,113 @@ const ContactUs = () => {
                     </div>
 
                     {/* Contact Form */}
-                    <div className="pb-20">
-                        <form onSubmit={handleSubmit}>
-                            {/* Row 1 */}
-                            <div className="flex gap-5">
-                                <div className="w-full">
-                                    <label className="block text-sm font-medium text-gray-700">First name</label>
-                                    <input
-                                        type="text"
-                                        name="firstName"
-                                        value={formData.firstName}
-                                        onChange={handleChange}
-                                        placeholder="First Name"
-                                        required
-                                        className="border-b p-2 focus:outline-none w-full"
-                                    />
-                                </div>
-                                <div className="w-full">
-                                    <label className="block text-sm font-medium text-gray-700">Last name</label>
-                                    <input
-                                        type="text"
-                                        name="lastName"
-                                        value={formData.lastName}
-                                        onChange={handleChange}
-                                        placeholder="Last Name"
-                                        className="border-b p-2 focus:outline-none w-full"
-                                    />
-                                </div>
-                            </div>
+                  <div className="pb-20">
+    <form onSubmit={handleSubmit}>
+        {/* Row 1 */}
+        <div className="flex gap-5">
+            <div className="w-full">
+                <label className="block text-sm font-medium text-gray-700">First name</label>
+                <input
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder="First Name"
+                    required
+                    className="border-b p-2 focus:outline-none w-full"
+                />
+            </div>
+            <div className="w-full">
+                <label className="block text-sm font-medium text-gray-700">Last name</label>
+                <input
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder="Last Name"
+                    className="border-b p-2 focus:outline-none w-full"
+                />
+            </div>
+        </div>
 
-                            {/* Row 2 */}
-                            <div className="flex gap-5 py-5">
-                                <div className="w-full">
-                                    <label className="block text-sm font-medium text-gray-700">Email</label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        placeholder="abc@gmail.com"
-                                        required
-                                        className="border-b p-2 focus:outline-none w-full"
-                                    />
-                                </div>
-                                <div className="w-full">
-                                    <label className="block text-sm font-medium text-gray-700">Phone</label>
-                                    <input
-                                        type="text"
-                                        name="phone"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                        placeholder="Phone number"
-                                        required
-                                        className="border-b p-2 focus:outline-none w-full"
-                                    />
-                                </div>
-                            </div>
+        {/* Row 2 */}
+        <div className="flex gap-5 py-5">
+            <div className="w-full">
+                <label className="block text-sm font-medium text-gray-700">Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="abc@gmail.com"
+                    required
+                    className="border-b p-2 focus:outline-none w-full"
+                />
+            </div>
+            <div className="w-full">
+                <label className="block text-sm font-medium text-gray-700">Phone</label>
+                <input
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Phone number"
+                    required
+                    className="border-b p-2 focus:outline-none w-full"
+                />
+            </div>
+        </div>
 
-                            {/* Subject Radio */}
-                            <label className="font-bold block pb-3">Selected Subject?</label>
-                            <div className="flex gap-3 flex-wrap">
-                                {["general", "billing", "technical", "feedback"].map((type) => (
-                                    <label key={type} className="flex items-center gap-2 cursor-pointer capitalize">
-                                        <input
-                                            type="radio"
-                                            name="subject"
-                                            value={type}
-                                            checked={formData.subject === type}
-                                            onChange={handleChange}
-                                            className="hidden peer"
-                                        />
-                                        <div className={`w-5 h-5 border-2 rounded-full flex items-center justify-center 
+        {/* Subject Radio */}
+        <label className="font-bold block pb-3">Selected Subject?</label>
+        <div className="flex gap-3 flex-wrap">
+            {["general", "billing", "technical", "feedback"].map((type) => (
+                <label key={type} className="flex items-center gap-2 cursor-pointer capitalize">
+                    <input
+                        type="radio"
+                        name="subject"
+                        id={`subject-${type}`}
+                        value={type}
+                        checked={formData.subject === type}
+                        onChange={handleChange}
+                        className="hidden peer"
+                    />
+                    <div className={`w-5 h-5 border-2 rounded-full flex items-center justify-center 
                       ${type === "general" && "border-red-600 peer-checked:bg-red-600"}
                       ${type === "billing" && "border-blue-600 peer-checked:bg-blue-600"}
                       ${type === "technical" && "border-green-600 peer-checked:bg-green-600"}
                       ${type === "feedback" && "border-purple-600 peer-checked:bg-purple-600"}
                     `}>
-                                            <div className="w-2.5 h-2.5 bg-white rounded-full opacity-0 peer-checked:opacity-100" />
-                                        </div>
-                                        <p className="text-gray-700">{type}</p>
-                                    </label>
-                                ))}
-                            </div>
-
-                            {/* Message */}
-                            <div className="w-full py-5">
-                                <label className="block text-md font-medium text-gray-700">Message</label>
-                                <input
-                                    type="text"
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    placeholder="Write your message"
-                                    required
-                                    className="border-b p-2 focus:outline-none w-full"
-                                />
-                            </div>
-
-                            <div className="btn bg-black text-white">
-                                <button className="cursor-pointer" type="submit">Send Message</button>
-                            </div>
-                        </form>
+                        <div className="w-2.5 h-2.5 bg-white rounded-full opacity-0 peer-checked:opacity-100" />
                     </div>
+                    <p className="text-gray-700">{type}</p>
+                </label>
+            ))}
+        </div>
+
+        {/* Message */}
+        <div className="w-full py-5">
+            <label className="block text-md font-medium text-gray-700">Message</label>
+            <textarea
+                name="message"
+                id="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Write your message"
+                required
+                className="border-b p-2 focus:outline-none w-full min-h-[100px]"
+            ></textarea>
+        </div>
+
+        <div className="btn bg-black text-white">
+            <button className="cursor-pointer" id="sendmessage" type="submit">Send Message</button>
+        </div>
+    </form>
+</div>
                 </div>
             </section>
             <div className="sm:pt-10">

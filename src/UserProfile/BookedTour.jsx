@@ -24,7 +24,6 @@ const BookedTour = () => {
     console.log(data);
     return (
         <div>
-            <h1>Booked Tours</h1>
             {data?.map((details) => (
                 <div className="overflow-x-auto" key={details._id}>
                     <table className="table text-[19b2b2]">
