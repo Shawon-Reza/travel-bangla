@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from './../Components/Header';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import { NavLink, Outlet } from 'react-router-dom';
+import { AuthContex } from '../Provider/AuthProvider';
 
 const AdminControl = () => {
+
+const {setUserRole}=useContext(AuthContex)
+
     return (
         <div>
             <div>
@@ -66,6 +70,12 @@ const AdminControl = () => {
                     >
                         Reviews
                     </NavLink>
+
+                    <button
+                     className='btn btn-outline btn-accent w-full font-semibold rounded-lg py-2 transition duration-200'
+                     onClick={()=>{setUserRole(null)}}
+
+                     >Logout</button>
 
                 </div>
 

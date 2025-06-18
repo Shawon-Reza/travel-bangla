@@ -9,7 +9,7 @@ const HomeLayout = () => {
     return (
         <div className="relative w-full min-h-screen overflow-hidden">
             {/* Particle Background */}
-            <div className="absolute inset-0 -z-10 ">
+            {/* <div className="absolute inset-0 -z-10 ">
                 <Particles
                     particleColors={['#ffffff', '#ffffff']}
                     particleCount={200}
@@ -20,7 +20,7 @@ const HomeLayout = () => {
                     alphaParticles={false}
                     disableRotation={false}
                 />
-            </div>
+            </div> */}
 
             {/* Page Content */}
             {/* <Background /> */}

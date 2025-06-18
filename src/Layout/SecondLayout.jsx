@@ -32,7 +32,10 @@ const LatestPostsSlider = () => {
     if (loading) return <div className="text-center text-lg">Loading latest posts...</div>;
 
     return (
-        <div>
+        <div className='-mt-20'>
+            <div className='text-4xl font-bold text-center'>
+                <h1>Latest Tours</h1>
+            </div>
             <div className="max-w-screen mx-auto py-10 px-4">
                 <Swiper
                     ref={swiperRef}

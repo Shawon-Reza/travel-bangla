@@ -36,6 +36,7 @@ import BookedList from './Admin/BookedList.jsx';
 import BookedTour from './UserProfile/BookedTour.jsx';
 import FavoriteListDisplay from './UserProfile/FavoriteListDisplay.jsx';
 import Home from './Components/extra/home.jsx';
+import CheckAdmin from './PrivetRoute/CheckAdmin.jsx';
 
 const router = createBrowserRouter([
   {
@@ -105,12 +106,12 @@ const router = createBrowserRouter([
 
   {
     path: "/admincontrol",
-    element: <AdminControl></AdminControl>,
+    element: <CheckAdmin><AdminControl></AdminControl></CheckAdmin>,
     children: [
       {
         path: '',
         element: <AdminSideTravelPostDisplay></AdminSideTravelPostDisplay>,
-        loader: () => fetch('http://localhost:5000/admin/travelposts')
+        loader: () => fetch('http://localhost:5000/admin/travelpostsCount')
 
       },
       {

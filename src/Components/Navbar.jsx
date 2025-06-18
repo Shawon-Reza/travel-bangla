@@ -116,7 +116,7 @@ const Navbar = () => {
             </li>
 
             <li>
-                <NavLink to="/admin"
+                <NavLink to="/admincontrol"
                     id='admin'
                     className={({ isActive }) =>
                         isActive

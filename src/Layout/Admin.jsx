@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import AdminLeftSide from '../Components/AdminLeftSide';
@@ -6,8 +6,10 @@ import TravelPost from '../Components/TravelPost';
 import { useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import carRunning from '../assets/lottie/CarRuning.json'
+import { AuthContex } from '../Provider/AuthProvider';
 
 const Admin = () => {
+    const {setUserRole} =useContext(AuthContex)
     const navigate = useNavigate();
 
     const handleAdminLogin = async (e) => {
@@ -24,6 +26,7 @@ const Admin = () => {
 
             if (data.valid) {
                 alert("✅ Login successful!");
+                setUserRole('admin')
                 // redirect or store user info here if needed
                 navigate('/admincontrol')
 
@@ -84,7 +87,7 @@ const Admin = () => {
                             </form>
                         </div>
                     </div>
-                </div>
+                </div>z
             </div>
 
 
